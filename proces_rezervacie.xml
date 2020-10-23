@@ -7,6 +7,10 @@
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
 	<!-- ROLES -->
+	<role>
+		<id>zakaznik</id>
+		<title>Zákazník</title>
+	</role>
 	<!-- DATA -->
 	<data type="text">
 		<id>uvodne_info</id>
@@ -38,6 +42,7 @@
 		<values>Deluxe izba</values>
 		<values>Apartmán</values>
 		<init>Základná izba</init>
+        
 	</data>
 	<data type="multichoice">
 		<id>vybava_izby</id>
@@ -112,7 +117,6 @@
 		<id>info</id>
 		<title>Info</title>
 		<values>area</values>
-		<init></init>
 	</data>
 	<data type="multichoice">
 		<id>multichoice_0</id>
@@ -122,7 +126,7 @@
 		<values>Súhlasím s obchodnými podmienkami</values>
 		<values>Súhlasím so spracovaním osobných údajov</values>
 		<values>Súhlasím so zaväznou platbou</values>
-		<view>
+        <view>
 			<list/>
 		</view>
 	</data>
@@ -136,6 +140,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Výber dátumu / počet osôb</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
             <layout>grid</layout>
@@ -214,6 +226,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Výber izby</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
             <layout>grid</layout>
@@ -302,6 +322,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Doplniť osobné informácie</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
             <layout>grid</layout>
@@ -459,9 +487,17 @@
 			<offset>0</offset>
 		</layout>
 		<label>Potvrdiť rezerváciu</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-			<layout>grid</layout>
+            <layout>grid</layout>
 			<dataRef>
 				<id>meno</id>
 				<logic>
@@ -699,6 +735,7 @@
 					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -713,6 +750,7 @@
 					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 		</dataGroup>
@@ -725,9 +763,17 @@
 			<offset>0</offset>
 		</layout>
 		<label>Vykonaj platbu</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-			<layout>grid</layout>
+            <layout>grid</layout>
 			<dataRef>
 				<id>info</id>
 				<logic>
@@ -783,6 +829,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Naspäť</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<transition>
 		<id>23</id>
@@ -792,6 +846,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Naspäť</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<transition>
 		<id>24</id>
@@ -801,6 +863,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Naspäť</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<transition>
 		<id>31</id>
@@ -810,6 +880,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Zrušiť</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<!-- PLACES -->
 	<place>
