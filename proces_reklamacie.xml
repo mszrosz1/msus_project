@@ -7,6 +7,14 @@
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
 	<!-- ROLES -->
+	<role>
+		<id>zakaznik</id>
+		<title>Zákazník</title>
+	</role>
+	<role>
+		<id>manazer</id>
+		<title>Manažér</title>
+	</role>
 	<!-- DATA -->
 	<data type="text">
 		<id>info</id>
@@ -59,9 +67,16 @@
 			<offset>0</offset>
 		</layout>
 		<label>Vytvorenie reklamácie</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-            <layout>grid</layout>
 			<dataRef>
 				<id>info</id>
 				<logic>
@@ -117,6 +132,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Schváliť</label>
+		<roleRef>
+			<id>manazer</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<transition>
 		<id>7</id>
@@ -126,6 +149,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Zamietnuť</label>
+		<roleRef>
+			<id>manazer</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<transition>
 		<id>14</id>
@@ -135,6 +166,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>Vybaviť reklamáciu</label>
+		<roleRef>
+			<id>manazer</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 	</transition>
 	<transition>
 		<id>15</id>
@@ -144,14 +183,26 @@
 			<offset>0</offset>
 		</layout>
 		<label>Napísať stanovisko o reklamácii</label>
+		<roleRef>
+			<id>manazer</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-            <layout>grid</layout>
 			<dataRef>
 				<id>stanovisko</id>
 				<logic>
 					<behavior>editable</behavior>
-                    <behavior>required</behavior>
+					<behavior>required</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -173,9 +224,24 @@
 			<offset>0</offset>
 		</layout>
 		<label>Kontrola stavu reklamácie</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
+		<roleRef>
+			<id>manazer</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-            <layout>grid</layout>
 			<dataRef>
 				<id>komentar</id>
 				<logic>
