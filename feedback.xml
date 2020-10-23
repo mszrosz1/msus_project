@@ -7,11 +7,15 @@
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
 	<!-- ROLES -->
+	<role>
+		<id>zakaznik</id>
+		<title>Zákazník</title>
+	</role>
 	<!-- DATA -->
 	<data type="text">
 		<id>spatna_vazba_text</id>
 		<title>Spätná väzba</title>
-        <values>area</values>
+		<values>area</values>
 		<init>Prosím napíšte nám Vaše skúsenosti počas pobytu ...</init>
 	</data>
 	<data type="text">
@@ -77,9 +81,16 @@
 			<offset>0</offset>
 		</layout>
 		<label>Poslať spätnú väzbu</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-			<layout>grid</layout>
 			<dataRef>
 				<id>spatna_vazba_text</id>
 				<logic>
