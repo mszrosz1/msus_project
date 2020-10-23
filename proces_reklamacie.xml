@@ -67,6 +67,10 @@
 			<offset>0</offset>
 		</layout>
 		<label>Vytvorenie reklamácie</label>
+
+		<dataGroup>
+			<id>DataGroup_0</id>
+            <layout>grid</layout>
 		<roleRef>
 			<id>zakaznik</id>
 			<logic>
@@ -183,6 +187,9 @@
 			<offset>0</offset>
 		</layout>
 		<label>Napísať stanovisko o reklamácii</label>
+		<dataGroup>
+			<id>DataGroup_0</id>
+            <layout>grid</layout>
 		<roleRef>
 			<id>manazer</id>
 			<logic>
@@ -202,6 +209,7 @@
 				<id>stanovisko</id>
 				<logic>
 					<behavior>editable</behavior>
+                    <behavior>required</behavior>
 					<behavior>required</behavior>
 				</logic>
 				<layout>
@@ -224,6 +232,9 @@
 			<offset>0</offset>
 		</layout>
 		<label>Kontrola stavu reklamácie</label>
+		<dataGroup>
+			<id>DataGroup_0</id>
+            <layout>grid</layout>
 		<roleRef>
 			<id>zakaznik</id>
 			<logic>
