@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>new_model</id>
+	<id>reklamacia</id>
 	<initials>NEW</initials>
-	<title>New Model</title>
+	<title>Reklamacia</title>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
@@ -67,10 +67,6 @@
 			<offset>0</offset>
 		</layout>
 		<label>Vytvorenie reklamácie</label>
-
-		<dataGroup>
-			<id>DataGroup_0</id>
-            <layout>grid</layout>
 		<roleRef>
 			<id>zakaznik</id>
 			<logic>
@@ -81,6 +77,7 @@
 		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
+            <layout>grid</layout>
 			<dataRef>
 				<id>info</id>
 				<logic>
@@ -187,9 +184,6 @@
 			<offset>0</offset>
 		</layout>
 		<label>Napísať stanovisko o reklamácii</label>
-		<dataGroup>
-			<id>DataGroup_0</id>
-            <layout>grid</layout>
 		<roleRef>
 			<id>manazer</id>
 			<logic>
@@ -198,13 +192,9 @@
 				<view>true</view>
 			</logic>
 		</roleRef>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-			</logic>
-		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
+            <layout>grid</layout>
 			<dataRef>
 				<id>stanovisko</id>
 				<logic>
@@ -232,9 +222,6 @@
 			<offset>0</offset>
 		</layout>
 		<label>Kontrola stavu reklamácie</label>
-		<dataGroup>
-			<id>DataGroup_0</id>
-            <layout>grid</layout>
 		<roleRef>
 			<id>zakaznik</id>
 			<logic>
@@ -253,6 +240,7 @@
 		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
+            <layout>grid</layout>
 			<dataRef>
 				<id>komentar</id>
 				<logic>

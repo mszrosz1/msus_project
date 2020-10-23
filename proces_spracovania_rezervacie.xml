@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>new_model</id>
+	<id>spracovanie_rezervacie</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>New Model</title>
+	<title>Spracovanie rezervacie</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
@@ -248,7 +248,7 @@
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -451,7 +451,7 @@
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>2</x>
@@ -684,7 +684,7 @@
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
