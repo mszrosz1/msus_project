@@ -477,6 +477,15 @@
 				<view>true</view>
 			</logic>
 		</roleRef>
+        <event type="finish">
+            <id>1</id>
+            <actions phase="pre">
+                <action>
+                    def newCase = createCase("5f86b232f9ac3b272d6b91b9_reklamacia", "Reklamácia")
+                    workflowService.save(newCase)
+                </action>
+            </actions>
+        </event>
 	</transition>
 	<!-- PLACES -->
 	<place>

@@ -754,6 +754,15 @@
 				</layout>
 			</dataRef>
 		</dataGroup>
+        <event type="finish">
+            <id>1</id>
+            <actions phase="pre">
+                <action>
+                    def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")
+                    workflowService.save(newCase)
+                </action>
+            </actions>
+        </event>
 	</transition>
 	<transition>
 		<id>11</id>
@@ -820,6 +829,15 @@
 				</layout>
 			</dataRef>
 		</dataGroup>
+        <event type="finish">
+            <id>1</id>
+            <actions phase="post">
+                <action>
+                    def newCase = createCase("5f86b232f9ac3b272d6b91b9_spracovanie_rezervacie", "Spracovanie rezervácie")
+                    workflowService.save(newCase)
+                </action>
+            </actions>
+        </event>
 	</transition>
 	<transition>
 		<id>22</id>
