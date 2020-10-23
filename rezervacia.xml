@@ -1,15 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>new_model</id>
+	<id>rezervacia</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>New Model</title>
+	<title>Rezervacia</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
 	<!-- ROLES -->
 	<!-- DATA -->
+	<data type="text">
+		<id>uvodne_info</id>
+		<title>Grand Hotel Mierovo</title>
+		<init>Úvodné informácie o hoteli</init>
+	</data>
+	<data type="date">
+		<id>od</id>
+		<title>Od</title>
+	</data>
+	<data type="number">
+		<id>pocet_noci</id>
+		<title>Počet nocí</title>
+		<init>1</init>
+	</data>
+	<data type="enumeration">
+		<id>pocet_lozok</id>
+		<title>Počet lôžok</title>
+		<values>2</values>
+		<values>3</values>
+		<values>4</values>
+		<init>2</init>
+	</data>
+	<data type="enumeration">
+		<id>vyber_izby</id>
+		<title>Výber izby</title>
+		<values>Základná izba</values>
+		<values>Business izba</values>
+		<values>Deluxe izba</values>
+		<values>Apartmán</values>
+		<init>Základná izba</init>
+	</data>
+	<data type="multichoice">
+		<id>vybava_izby</id>
+		<title>Výbava izby</title>
+		<placeholder>placeholder</placeholder>
+		<values>Minibar</values>
+		<values>Trezor</values>
+		<values>Sprchovací kút</values>
+		<values>Vaňa</values>
+		<values>Telefón</values>
+		<values>TV</values>
+		<values>Bezplatné wifi</values>
+		<values>Bezplatné parkovisko</values>
+		<values>Vstup do fitnesscentra</values>
+	</data>
+	<data type="boolean">
+		<id>domace_zviera</id>
+		<title>Domáce zviera</title>
+		<init>false</init>
+	</data>
+	<data type="boolean">
+		<id>pristelka</id>
+		<title>S prístelkou</title>
+		<init>false</init>
+	</data>
+	<data type="number">
+		<id>cena</id>
+		<title>Cena</title>
+		<init>0</init>
+	</data>
 	<data type="text">
 		<id>meno</id>
 		<title>Meno</title>
@@ -18,61 +78,53 @@
 		<id>priezvisko</id>
 		<title>Priezvisko</title>
 	</data>
+	<data type="date">
+		<id>datum_narodenia</id>
+		<title>Dátum narodenia</title>
+	</data>
 	<data type="text">
 		<id>email</id>
-		<title>Emailová adresa</title>
+		<title>Emailova adresa</title>
 	</data>
 	<data type="text">
-		<id>op</id>
-		<title>Číslo OP</title>
+		<id>tel_cislo</id>
+		<title>Telefónne číslo</title>
 	</data>
 	<data type="text">
-		<id>tel</id>
-		<title>Tel. číslo</title>
-	</data>
-	<data type="enumeration">
-		<id>hotel</id>
-		<title>Názov hotela</title>
-		<values>option1</values>
-		<values>option2</values>
-		<values>option3</values>
-		<init>option1</init>
-	</data>
-	<data type="enumeration">
 		<id>mesto</id>
 		<title>Mesto</title>
-		<values>option1</values>
-		<values>option2</values>
-		<values>option3</values>
-		<init>option1</init>
 	</data>
-	<data type="number">
-		<id>p_lozok</id>
-		<title>Počet lôžok</title>
-		<init>1</init>
+	<data type="text">
+		<id>cislo_domu</id>
+		<title>Číslo domu</title>
 	</data>
-	<data type="boolean">
-		<id>d_zviera</id>
-		<title>Domáce zviera</title>
-		<init>false</init>
+	<data type="text">
+		<id>ulica</id>
+		<title>Ulica</title>
 	</data>
-	<data type="number">
-		<id>p_hviezdiciek</id>
-		<title>Počet hviezdičiek</title>
-		<init>2</init>
+	<data type="text">
+		<id>stat</id>
+		<title>Štát</title>
 	</data>
-	<data type="date">
-		<id>od</id>
-		<title>Dátum od</title>
+	<data type="text">
+		<id>info</id>
+		<title>Info</title>
+		<values>area</values>
 	</data>
-	<data type="date">
-		<id>do</id>
-		<title>Dátum do</title>
+	<data type="multichoice">
+		<id>suhlasy</id>
+		<title>Súhlas</title>
+		<placeholder>placeholder</placeholder>
+		<desc>description</desc>
+		<values>Súhlasím s obchodnými podmienkami</values>
+		<values>Súhlasím so spracovaním osobných údajov</values>
+		<values>Súhlasím so zaväznou platbou</values>
 	</data>
 	<data type="enumeration">
 		<id>typ_ubytovania</id>
-		<title>Typ ubytovania</title>
+		<title>Výber izby</title>
 		<values>Základná izba</values>
+		<values>Business izba</values>
 		<values>Deluxe izba</values>
 		<values>Apartmán</values>
 		<init>option1</init>
@@ -85,9 +137,6 @@
 		<values>Platba kartou online</values>
 		<values>Platba kartou osobne</values>
 		<values>Platba v hotovosti sosbne</values>
-		<view>
-			<list/>
-		</view>
 		<init>Platba kartou online</init>
 	</data>
 	<data type="number">
@@ -95,16 +144,24 @@
 		<title>Cena</title>
 		<init>0</init>
 	</data>
+	<data type="enumeration">
+		<id>stav_rezervacie</id>
+		<title>Stav rezervácie</title>
+		<placeholder>Stav rezervácie</placeholder>
+		<values>Schválená</values>
+		<values>Čaká na schválenie</values>
+		<values>Ubytovaný</values>
+		<values>Zamietnutá</values>
+	</data>
 	<data type="text">
-		<id>ine</id>
-		<title>Iné</title>
-		<placeholder>Extra požiadavky</placeholder>
+		<id>dovod_zrusenia</id>
+		<title>Dôvod zrušenia</title>
 		<values>area</values>
 	</data>
-	<data type="boolean">
-		<id>wellnes</id>
-		<title>Wellnes služby</title>
-		<init>false</init>
+	<data type="text">
+		<id>dovod_zamietnutia</id>
+		<title>Dôvod zamietnutia</title>
+		<values>area</values>
 	</data>
 	<!-- I18NS -->
 	<!-- TRANSITIONS -->
@@ -115,39 +172,12 @@
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label>vytvorit</label>
-	</transition>
-	<transition>
-		<id>5</id>
-		<x>740</x>
-		<y>340</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>zrusit</label>
-	</transition>
-	<transition>
-		<id>6</id>
-		<x>620</x>
-		<y>460</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>zmenit</label>
-	</transition>
-	<transition>
-		<id>7</id>
-		<x>620</x>
-		<y>220</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>pozriet</label>
+		<label>Vytvoriť</label>
 		<dataGroup>
 			<id>DataGroup_0</id>
 			<layout>grid</layout>
 			<dataRef>
-				<id>text_5</id>
+				<id>meno</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -162,7 +192,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>text_6</id>
+				<id>priezvisko</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -177,7 +207,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>text_7</id>
+				<id>datum_narodenia</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -192,7 +222,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>text_8</id>
+				<id>email</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -207,7 +237,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>text_9</id>
+				<id>tel_cislo</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -222,22 +252,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>enumeration_1</id>
-				<logic>
-					<behavior>visible</behavior>
-				</logic>
-				<layout>
-					<x>2</x>
-					<y>3</y>
-					<rows>1</rows>
-					<cols>2</cols>
-					<offset>0</offset>
-					<template>material</template>
-					<appearance>outline</appearance>
-				</layout>
-			</dataRef>
-			<dataRef>
-				<id>enumeration_2</id>
+				<id>od</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -252,13 +267,13 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>number_0</id>
+				<id>pocet_noci</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>5</y>
+					<y>3</y>
 					<rows>1</rows>
 					<cols>2</cols>
 					<offset>0</offset>
@@ -267,21 +282,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>boolean_0</id>
-				<logic>
-					<behavior>visible</behavior>
-				</logic>
-				<layout>
-					<x>0</x>
-					<y>5</y>
-					<rows>1</rows>
-					<cols>2</cols>
-					<offset>0</offset>
-					<template>material</template>
-				</layout>
-			</dataRef>
-			<dataRef>
-				<id>number_1</id>
+				<id>vyber_izby</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -296,37 +297,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>date_2</id>
-				<logic>
-					<behavior>visible</behavior>
-				</logic>
-				<layout>
-					<x>0</x>
-					<y>6</y>
-					<rows>1</rows>
-					<cols>2</cols>
-					<offset>0</offset>
-					<template>material</template>
-					<appearance>outline</appearance>
-				</layout>
-			</dataRef>
-			<dataRef>
-				<id>date_3</id>
-				<logic>
-					<behavior>visible</behavior>
-				</logic>
-				<layout>
-					<x>2</x>
-					<y>6</y>
-					<rows>1</rows>
-					<cols>2</cols>
-					<offset>0</offset>
-					<template>material</template>
-					<appearance>outline</appearance>
-				</layout>
-			</dataRef>
-			<dataRef>
-				<id>enumeration_3</id>
+				<id>pocet_lozok</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -341,37 +312,52 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>enumeration_4</id>
+				<id>pristelka</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
-					<y>8</y>
-					<rows>2</rows>
+					<y>5</y>
+					<rows>1</rows>
 					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance>outline</appearance>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>number_2</id>
+				<id>domace_zviera</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>9</y>
+					<y>5</y>
 					<rows>1</rows>
 					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance></appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>vybava_izby</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>6</y>
+					<rows>1</rows>
+					<cols>4</cols>
 					<offset>0</offset>
 					<template>material</template>
 					<appearance>outline</appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>text_11</id>
+				<id>cena</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
@@ -385,39 +371,462 @@
 					<appearance>outline</appearance>
 				</layout>
 			</dataRef>
+		</dataGroup>
+	</transition>
+	<transition>
+		<id>5</id>
+		<x>740</x>
+		<y>340</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label>Zrušiť</label>
+		<dataGroup>
+			<id>DataGroup_0</id>
+			<layout>grid</layout>
 			<dataRef>
-				<id>boolean_1</id>
+				<id>tel_cislo</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>2</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>pocet_lozok</id>
 				<logic>
 					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>8</y>
+					<y>3</y>
 					<rows>1</rows>
 					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>pocet_noci</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>4</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>vybava_izby</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>5</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>pristelka</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>6</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance></appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>domace_zviera</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>6</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance></appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>meno</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>0</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>priezvisko</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>0</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>email</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>1</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>tel_cislo</id>
+				<logic>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>2</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>typ_ubytovania</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>4</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>od</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>3</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>dovod_zrusenia</id>
+				<logic>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>7</y>
+					<rows>2</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
 				</layout>
 			</dataRef>
 		</dataGroup>
 	</transition>
 	<transition>
-		<id>22</id>
-		<x>501</x>
-		<y>582</y>
+		<id>7</id>
+		<x>620</x>
+		<y>220</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label>schvalit</label>
+		<label>Pozrieť</label>
+		<dataGroup>
+			<id>DataGroup_0</id>
+			<layout>grid</layout>
+			<dataRef>
+				<id>stav_rezervacie</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>14</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>pocet_lozok</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>4</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>datum_narodenia</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>1</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>cena</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>13</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>meno</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>0</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>priezvisko</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>0</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>tel_cislo</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>2</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>email</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>1</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>vybava_izby</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>6</y>
+					<rows>7</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>pocet_noci</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>3</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>od</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>3</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>vyber_izby</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>4</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>pristelka</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>5</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance></appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>domace_zviera</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>2</x>
+					<y>5</y>
+					<rows>1</rows>
+					<cols>2</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance></appearance>
+				</layout>
+			</dataRef>
+		</dataGroup>
 	</transition>
 	<transition>
-		<id>23</id>
-		<x>744</x>
-		<y>582</y>
+		<id>39</id>
+		<x>741</x>
+		<y>275</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label>zamietnut</label>
+		<label>Check-in</label>
+		<event type="finish">
+			<id>0</id>
+			<actions phase="post">
+				<action> stav_rezervacie: f.stav_rezervacie; change stav_rezervacie value { return "Ubytovaný" }</action>
+			</actions>
+		</event>
+	</transition>
+	<transition>
+		<id>46</id>
+		<x>1009</x>
+		<y>218</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label>Reklamácia</label>
 	</transition>
 	<!-- PLACES -->
 	<place>
@@ -425,7 +834,7 @@
 		<x>380</x>
 		<y>340</y>
 		<label></label>
-		<tokens>0</tokens>
+		<tokens>1</tokens>
 		<static>false</static>
 	</place>
 	<place>
@@ -438,16 +847,16 @@
 	</place>
 	<place>
 		<id>4</id>
-		<x>850</x>
+		<x>862</x>
 		<y>340</y>
 		<label></label>
 		<tokens>0</tokens>
 		<static>false</static>
 	</place>
 	<place>
-		<id>16</id>
-		<x>623</x>
-		<y>582</y>
+		<id>42</id>
+		<x>853</x>
+		<y>219</y>
 		<label></label>
 		<tokens>0</tokens>
 		<static>false</static>
@@ -482,13 +891,6 @@
 		<multiplicity>1</multiplicity>
 	</arc>
 	<arc>
-		<id>13</id>
-		<type>regular</type>
-		<sourceId>3</sourceId>
-		<destinationId>6</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
 		<id>15</id>
 		<type>read</type>
 		<sourceId>3</sourceId>
@@ -496,38 +898,31 @@
 		<multiplicity>1</multiplicity>
 	</arc>
 	<arc>
-		<id>19</id>
+		<id>40</id>
 		<type>regular</type>
-		<sourceId>6</sourceId>
-		<destinationId>16</destinationId>
+		<sourceId>3</sourceId>
+		<destinationId>39</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
 	<arc>
-		<id>24</id>
+		<id>43</id>
 		<type>regular</type>
-		<sourceId>16</sourceId>
-		<destinationId>23</destinationId>
+		<sourceId>39</sourceId>
+		<destinationId>42</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
 	<arc>
-		<id>25</id>
+		<id>51</id>
 		<type>regular</type>
-		<sourceId>16</sourceId>
-		<destinationId>22</destinationId>
+		<sourceId>42</sourceId>
+		<destinationId>46</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
 	<arc>
-		<id>26</id>
+		<id>52</id>
 		<type>regular</type>
-		<sourceId>22</sourceId>
-		<destinationId>3</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>27</id>
-		<type>regular</type>
-		<sourceId>23</sourceId>
-		<destinationId>3</destinationId>
+		<sourceId>46</sourceId>
+		<destinationId>42</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
 </document>
