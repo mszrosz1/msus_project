@@ -4,7 +4,10 @@
 - dynamicky field vyber izby
 - prepocet ceny 
 - regexy 
-- suhlas multichoice -> custom exception -->
+- suhlas multichoice -> custom exception
+- medziprocesova komunikacia (setData)
+newCase.dataSet["podproces_data"].value = proces_data.value.toString();
+-->
 
 
 <?xml version="1.0" encoding="UTF-8"?>
