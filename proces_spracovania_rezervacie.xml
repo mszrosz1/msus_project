@@ -1,3 +1,14 @@
+<!-- - vytvorit boolean field na prvom pr.
+- daf task = assign()
+def newCase = ...
+workflow.save...
+finish(task)
+- rozbit prechod zamietnutie rezervacie na dva dalsie prechody
+- vypocet ceny
+- doplnit novu ponuku
+- vytvorit dalsi boolean field
+- doplnit medziprocesovu kom. -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
 	<id>spracovanie_rezervacie</id>
