@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>new_model</id>
+	<id>sprac_rez</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
 	<title>New Model</title>
@@ -450,18 +450,17 @@
 					boolean_0 :f.boolean_0;
 
 					if(boolean_0.value){
+            async.run{
+            assignTask("35")
+            finishTask("35")
+            }
 
-					async.run{
-					assignTask("35")
-					finishTask("35")
 					}
-
-					}
-					else{
-					async.run{
-					assignTask("51")
-					finishTask("51")
-					}
+          else{
+            async.run{
+            assignTask("51")
+            finishTask("51")
+            }
 					}
 
 				</action>
