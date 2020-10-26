@@ -37,6 +37,14 @@ newCase.dataSet["podproces_data"].value = proces_data.value.toString();
 	<data type="number">
 		<id>pocet_noci</id>
 		<title>Počet nocí</title>
+		<action trigger="set">
+            noci: f.this;
+            if(noci.value &lt; 1){ 
+                change noci value {
+                    return 1;
+                }
+            }
+        </action>
 		<init>1</init>
 	</data>
 	<data type="enumeration">
@@ -55,7 +63,6 @@ newCase.dataSet["podproces_data"].value = proces_data.value.toString();
 		<values>Deluxe izba</values>
 		<values>Apartmán</values>
 		<init>Základná izba</init>
-        
 	</data>
 	<data type="multichoice">
 		<id>vybava_izby</id>
