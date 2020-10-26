@@ -35,15 +35,8 @@ newCase.dataSet["podproces_data"].value = proces_data.value.toString();
 	<data type="number">
 		<id>pocet_noci</id>
 		<title>Počet nocí</title>
-		<action trigger="set">
-            noci: f.this;
-            if(noci.value &lt; 1){ 
-                change noci value {
-                    return 1;
-                }
-            }
-        </action>
 		<init>1</init>
+		<valid>inrange 1,inf</valid>
 	</data>
 	<data type="enumeration">
 		<id>pocet_lozok</id>
@@ -61,6 +54,33 @@ newCase.dataSet["podproces_data"].value = proces_data.value.toString();
 		<values>Deluxe izba</values>
 		<values>Apartmán</values>
 		<init>Základná izba</init>
+		<action id="1" trigger="set">vyber_izby: f.vyber_izby,
+		vybava_izby: f.vybava_izby;
+
+		if(vyber_izby.value == "Základná izba") {
+			change vybava_izby value {
+				return ["Minibar","Sprchovací kút"];
+			}
+		}
+
+		if(vyber_izby.value == "Business izba") {
+			change vybava_izby value {
+				return ["Minibar","Trezor","Sprchovací kút","Telefón","Bezplatné wifi"];
+			}
+		}
+		
+		if(vyber_izby.value == "Deluxe izba") {
+			change vybava_izby value {
+				return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko"];
+			}
+		}
+		
+		if(vyber_izby.value == "Apartmán") {
+			change vybava_izby value {
+				return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko","Vstup do fitnesscentra"];
+			}
+		}
+		</action>
 	</data>
 	<data type="multichoice">
 		<id>vybava_izby</id>
