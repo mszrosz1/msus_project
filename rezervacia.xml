@@ -65,6 +65,9 @@
 		<values>Bezplatné wifi</values>
 		<values>Bezplatné parkovisko</values>
 		<values>Vstup do fitnesscentra</values>
+		<view>
+			<list/>
+		</view>
 	</data>
 	<data type="boolean">
 		<id>domace_zviera</id>
@@ -130,6 +133,9 @@
 		<values>Súhlasím s obchodnými podmienkami</values>
 		<values>Súhlasím so spracovaním osobných údajov</values>
 		<values>Súhlasím so zaväznou platbou</values>
+		<view>
+			<list/>
+		</view>
 	</data>
 	<data type="enumeration">
 		<id>typ_ubytovania</id>
