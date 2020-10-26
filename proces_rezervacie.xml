@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>proces_rezervacie_new</id>
+  <id>proces_rezervacie_new</id>
 	<initials>NEW</initials>
 	<title>Proces rezervacie</title>
 	<defaultRole>true</defaultRole>
@@ -860,304 +860,341 @@
             <id>1</id>
             <actions phase="post">
                 <action>
-                    def newCase = createCase("5f86b232f9ac3b272d6b91b9_spracovanie_rezervacie", "Spracovanie rezervácie")
-                    workflowService.save(newCase)
+
+                    ulica: f.ulica,
+                    pristelka:f.pristelka,
+                    email : f.email,
+                    od : f.od,
+                    pocet_noci : f.pocet_noci,
+                    pocet_lozok : f.pocet_lozok,
+                    vyber_izby : f.vyber_izby,
+                    vybava_izby : f.vybava_izby,
+                    domace_zviera : f.domace_zviera,
+                    cena : f.cena,
+                    meno : f.meno,
+                    priezvisko : f.priezvisko,
+                    datum_narodenia : f.datum_narodenia,
+                    uvodne_info:f.uvodne_info,
+                    tel_cislo : f.tel_cislo,
+                    mesto : f.mesto,
+                    cislo_domu : f.cislo_domu,
+                    stat : f.stat,
+                    info : f.info;
+
+                    def newCase = createCase("5f86b233f9ac3b272d6ba3dd_rezervacia", "Rezervacia")
+
+
+                    newCase.dataSet["ulica"].value = ulica.value;
+                    newCase.dataSet["pristelka"].value = pristelka.value;
+                    newCase.dataSet["email"].value = email.value;
+                    newCase.dataSet["uvodne_info"].value = uvodne_info.value;
+                    newCase.dataSet["od"].value = od.value;
+                    newCase.dataSet["pocet_noci"].value = pocet_noci.value;
+                    newCase.dataSet["pocet_lozok"].value = pocet_lozok.value;
+                    newCase.dataSet["vyber_izby"].value = vyber_izby.value;
+                    newCase.dataSet["vybava_izby"].value = vybava_izby.value;
+                    newCase.dataSet["domace_zviera"].value = domace_zviera.value;
+                    newCase.dataSet["cena"].value = cena.value;
+                    newCase.dataSet["meno"].value = meno.value;
+                    newCase.dataSet["priezvisko"].value = priezvisko.value;
+                    newCase.dataSet["datum_narodenia"].value = datum_narodenia.value;
+                    newCase.dataSet["tel_cislo"].value = tel_cislo.value;
+                    newCase.dataSet["mesto"].value = mesto.value;
+                    newCase.dataSet["cislo_domu"].value = cislo_domu.value;
+                    newCase.dataSet["stat"].value = stat.value;
+                    newCase.dataSet["info"].value = info.value;
+
+
+
+                    def newCase1 = createCase("5f86b233f9ac3b272d6ba3dd_new_model", "New Model")
+
+
+                    newCase1.dataSet["ulica"].value = ulica.value;
+                    newCase1.dataSet["pristelka"].value = pristelka.value;
+                    newCase1.dataSet["email"].value = email.value;
+                    newCase1.dataSet["uvodne_info"].value = uvodne_info.value;
+                    newCase1.dataSet["od"].value = od.value;
+                    newCase1.dataSet["pocet_noci"].value = pocet_noci.value;
+                    newCase1.dataSet["pocet_lozok"].value = pocet_lozok.value;
+                    newCase1.dataSet["vyber_izby"].value = vyber_izby.value;
+                    newCase1.dataSet["vybava_izby"].value = vybava_izby.value;
+                    newCase1.dataSet["domace_zviera"].value = domace_zviera.value;
+                    newCase1.dataSet["cena"].value = cena.value;
+                    newCase1.dataSet["meno"].value = meno.value;
+                    newCase1.dataSet["priezvisko"].value = priezvisko.value;
+                    newCase1.dataSet["datum_narodenia"].value = datum_narodenia.value;
+                    newCase1.dataSet["tel_cislo"].value = tel_cislo.value;
+                    newCase1.dataSet["mesto"].value = mesto.value;
+                    newCase1.dataSet["cislo_domu"].value = cislo_domu.value;
+                    newCase1.dataSet["stat"].value = stat.value;
+                    newCase1.dataSet["info"].value = info.value;
+
+
+                    workflowService.save(newCase);
+                    workflowService.save(newCase1);
+
+
+
                 </action>
             </actions>
         </event>
-	</transition>
-	<transition>
-		<id>22</id>
-		<x>579</x>
-		<y>139</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>Naspäť</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
-			</logic>
-		</roleRef>
-	</transition>
-	<transition>
-		<id>23</id>
-		<x>580</x>
-		<y>307</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>Naspäť</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
-			</logic>
-		</roleRef>
-	</transition>
-	<transition>
-		<id>24</id>
-		<x>577</x>
-		<y>447</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>Naspäť</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
-			</logic>
-		</roleRef>
-	</transition>
-	<transition>
-		<id>31</id>
-		<x>1001</x>
-		<y>403</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>Zrušiť</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
-			</logic>
-		</roleRef>
-	</transition>
-	<!-- PLACES -->
-	<place>
-		<id>1</id>
-		<x>744</x>
-		<y>64</y>
-		<label></label>
-		<tokens>1</tokens>
-		<static>false</static>
-	</place>
-	<place>
-		<id>2</id>
-		<x>743</x>
-		<y>222</y>
-		<label></label>
-		<tokens>0</tokens>
-		<static>false</static>
-	</place>
-	<place>
-		<id>3</id>
-		<x>742</x>
-		<y>377</y>
-		<label></label>
-		<tokens>0</tokens>
-		<static>false</static>
-	</place>
-	<place>
-		<id>4</id>
-		<x>742</x>
-		<y>528</y>
-		<label></label>
-		<tokens>0</tokens>
-		<static>false</static>
-	</place>
-	<place>
-		<id>5</id>
-		<x>748</x>
-		<y>670</y>
-		<label></label>
-		<tokens>0</tokens>
-		<static>false</static>
-	</place>
-	<place>
-		<id>6</id>
-		<x>751</x>
-		<y>833</y>
-		<label></label>
-		<tokens>0</tokens>
-		<static>false</static>
-	</place>
-	<place>
-		<id>32</id>
-		<x>1159</x>
-		<y>400</y>
-		<label></label>
-		<tokens>0</tokens>
-		<static>false</static>
-	</place>
-	<!-- ARCS -->
-	<arc>
-		<id>12</id>
-		<type>regular</type>
-		<sourceId>1</sourceId>
-		<destinationId>7</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>13</id>
-		<type>regular</type>
-		<sourceId>7</sourceId>
-		<destinationId>2</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>14</id>
-		<type>regular</type>
-		<sourceId>2</sourceId>
-		<destinationId>8</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>15</id>
-		<type>regular</type>
-		<sourceId>8</sourceId>
-		<destinationId>3</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>16</id>
-		<type>regular</type>
-		<sourceId>3</sourceId>
-		<destinationId>9</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>17</id>
-		<type>regular</type>
-		<sourceId>9</sourceId>
-		<destinationId>4</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>18</id>
-		<type>regular</type>
-		<sourceId>4</sourceId>
-		<destinationId>10</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>19</id>
-		<type>regular</type>
-		<sourceId>10</sourceId>
-		<destinationId>5</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>20</id>
-		<type>regular</type>
-		<sourceId>5</sourceId>
-		<destinationId>11</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>21</id>
-		<type>regular</type>
-		<sourceId>11</sourceId>
-		<destinationId>6</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>25</id>
-		<type>regular</type>
-		<sourceId>4</sourceId>
-		<destinationId>24</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>26</id>
-		<type>regular</type>
-		<sourceId>24</sourceId>
-		<destinationId>3</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>27</id>
-		<type>regular</type>
-		<sourceId>3</sourceId>
-		<destinationId>23</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>28</id>
-		<type>regular</type>
-		<sourceId>23</sourceId>
-		<destinationId>2</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>29</id>
-		<type>regular</type>
-		<sourceId>2</sourceId>
-		<destinationId>22</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>30</id>
-		<type>regular</type>
-		<sourceId>22</sourceId>
-		<destinationId>1</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>33</id>
-		<type>inhibitor</type>
-		<sourceId>1</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>34</id>
-		<type>inhibitor</type>
-		<sourceId>5</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>35</id>
-		<type>inhibitor</type>
-		<sourceId>6</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>36</id>
-		<type>reset</type>
-		<sourceId>2</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>37</id>
-		<type>reset</type>
-		<sourceId>3</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>38</id>
-		<type>reset</type>
-		<sourceId>4</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>39</id>
-		<type>inhibitor</type>
-		<sourceId>32</sourceId>
-		<destinationId>31</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>40</id>
-		<type>regular</type>
-		<sourceId>31</sourceId>
-		<destinationId>32</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
+    </transition>
+    <transition>
+        <id>22</id>
+        <x>579</x>
+        <y>139</y>
+        <layout>
+            <offset>0</offset>
+        </layout>
+        <label>Naspäť</label>
+        <roleRef>
+            <id>zakaznik</id>
+            <logic>
+                <perform>true</perform>
+                <delegate>true</delegate>
+                <view>true</view>
+            </logic>
+        </roleRef>
+    </transition>
+    <transition>
+        <id>23</id>
+        <x>580</x>
+        <y>307</y>
+        <layout>
+            <offset>0</offset>
+        </layout>
+        <label>Naspäť</label>
+        <roleRef>
+            <id>zakaznik</id>
+            <logic>
+                <perform>true</perform>
+                <delegate>true</delegate>
+                <view>true</view>
+            </logic>
+        </roleRef>
+    </transition>
+    <transition>
+        <id>24</id>
+        <x>577</x>
+        <y>447</y>
+        <layout>
+            <offset>0</offset>
+        </layout>
+        <label>Naspäť</label>
+        <roleRef>
+            <id>zakaznik</id>
+            <logic>
+                <perform>true</perform>
+                <delegate>true</delegate>
+                <view>true</view>
+            </logic>
+        </roleRef>
+    </transition>
+    <transition>
+        <id>31</id>
+        <x>1001</x>
+        <y>403</y>
+        <layout>
+            <offset>0</offset>
+        </layout>
+        <label>Zrušiť</label>
+        <roleRef>
+            <id>zakaznik</id>
+            <logic>
+                <perform>true</perform>
+                <delegate>true</delegate>
+                <view>true</view>
+            </logic>
+        </roleRef>
+    </transition>
+    <!-- PLACES -->
+    <place>
+        <id>1</id>
+        <x>744</x>
+        <y>64</y>
+        <label></label>
+        <tokens>1</tokens>
+        <static>false</static>
+    </place>
+    <place>
+        <id>2</id>
+        <x>743</x>
+        <y>222</y>
+        <label></label>
+        <tokens>0</tokens>
+        <static>false</static>
+    </place>
+    <place>
+        <id>3</id>
+        <x>742</x>
+        <y>377</y>
+        <label></label>
+        <tokens>0</tokens>
+        <static>false</static>
+    </place>
+    <place>
+        <id>4</id>
+        <x>742</x>
+        <y>528</y>
+        <label></label>
+        <tokens>0</tokens>
+        <static>false</static>
+    </place>
+    <place>
+        <id>5</id>
+        <x>748</x>
+        <y>670</y>
+        <label></label>
+        <tokens>0</tokens>
+        <static>false</static>
+    </place>
+    <place>
+        <id>32</id>
+        <x>1159</x>
+        <y>400</y>
+        <label></label>
+        <tokens>0</tokens>
+        <static>false</static>
+    </place>
+    <!-- ARCS -->
+    <arc>
+        <id>12</id>
+        <type>regular</type>
+        <sourceId>1</sourceId>
+        <destinationId>7</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>13</id>
+        <type>regular</type>
+        <sourceId>7</sourceId>
+        <destinationId>2</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>14</id>
+        <type>regular</type>
+        <sourceId>2</sourceId>
+        <destinationId>8</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>15</id>
+        <type>regular</type>
+        <sourceId>8</sourceId>
+        <destinationId>3</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>16</id>
+        <type>regular</type>
+        <sourceId>3</sourceId>
+        <destinationId>9</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>17</id>
+        <type>regular</type>
+        <sourceId>9</sourceId>
+        <destinationId>4</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>18</id>
+        <type>regular</type>
+        <sourceId>4</sourceId>
+        <destinationId>10</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>19</id>
+        <type>regular</type>
+        <sourceId>10</sourceId>
+        <destinationId>5</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>25</id>
+        <type>regular</type>
+        <sourceId>4</sourceId>
+        <destinationId>24</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>26</id>
+        <type>regular</type>
+        <sourceId>24</sourceId>
+        <destinationId>3</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>27</id>
+        <type>regular</type>
+        <sourceId>3</sourceId>
+        <destinationId>23</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>28</id>
+        <type>regular</type>
+        <sourceId>23</sourceId>
+        <destinationId>2</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>29</id>
+        <type>regular</type>
+        <sourceId>2</sourceId>
+        <destinationId>22</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>30</id>
+        <type>regular</type>
+        <sourceId>22</sourceId>
+        <destinationId>1</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>33</id>
+        <type>inhibitor</type>
+        <sourceId>1</sourceId>
+        <destinationId>31</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>36</id>
+        <type>reset</type>
+        <sourceId>2</sourceId>
+        <destinationId>31</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>37</id>
+        <type>reset</type>
+        <sourceId>3</sourceId>
+        <destinationId>31</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>38</id>
+        <type>reset</type>
+        <sourceId>4</sourceId>
+        <destinationId>31</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>39</id>
+        <type>inhibitor</type>
+        <sourceId>32</sourceId>
+        <destinationId>31</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>40</id>
+        <type>regular</type>
+        <sourceId>31</sourceId>
+        <destinationId>32</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
 </document>
