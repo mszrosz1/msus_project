@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>new_model</id>
+	<id>sprac_rez</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
 	<title>sprac_rez</title>
@@ -447,23 +447,19 @@
 
 					boolean_0 :f.boolean_0;
 
-					if(boolean_0 == true){
+					if(boolean_0.value){
 
-
-
-					def task = findTask({it.transitionId.eq("22")})
-
-					assignTask(task)
-					finishTask(task)
+                    async.run{
+					    assignTask("35")
+                        finishTask("35")
+                        }
 
 					}
 					else{
-
-
-					def task1 = findTask({it.transitionId.eq("23")})
-					assignTask(task1)
-					finishTask(task1)
-
+                    async.run{
+				        assignTask("51")
+                        finishTask("51")
+                        }
 					}
 
 				</action>
