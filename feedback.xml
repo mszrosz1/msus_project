@@ -32,7 +32,7 @@
 		<values>area</values>
 		<init>Skúste ohodnotiť naše služby podľa nasledejúceho zoznamu. Vyberte si z kolonky číslo od 1(najhoršie) po 10 (najlepšie). Záleží na Vašom názore! Ďakujeme ...
 
-</init>
+		</init>
 	</data>
 	<data type="text">
 		<id>wellnes</id>
@@ -75,7 +75,7 @@
 	<!-- TRANSITIONS -->
 	<transition>
 		<id>2</id>
-		<x>800</x>
+		<x>674</x>
 		<y>188</y>
 		<layout>
 			<offset>0</offset>
@@ -91,7 +91,7 @@
 		</roleRef>
 		<dataGroup>
 			<id>DataGroup_0</id>
-            <layout>grid</layout>
+			<layout>grid</layout>
 			<dataRef>
 				<id>spatna_vazba_text</id>
 				<logic>
@@ -274,6 +274,15 @@
 			</dataRef>
 		</dataGroup>
 	</transition>
+	<transition>
+		<id>6</id>
+		<x>914</x>
+		<y>189</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label>Neposlať spätnú väzbu</label>
+	</transition>
 	<!-- PLACES -->
 	<place>
 		<id>1</id>
@@ -303,6 +312,20 @@
 		<id>5</id>
 		<type>regular</type>
 		<sourceId>2</sourceId>
+		<destinationId>3</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>7</id>
+		<type>regular</type>
+		<sourceId>1</sourceId>
+		<destinationId>6</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>8</id>
+		<type>regular</type>
+		<sourceId>6</sourceId>
 		<destinationId>3</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
