@@ -614,8 +614,8 @@
 
 <!--					Case useCase = findCase( { it.title.eq("Rezervacia") & it.processIdentifier.eq("Rezervacia") } );-->
 					def useCase = findCase( { it.title.eq("Rezervacia") &amp; it.processIdentifier.eq("5f86b233f9ac3b272d6ba3dd_rezervacia")} );
-<!--					useCase.dataSet["stav_rezervacie"].value = "Schválená";-->
-					change
+					useCase.dataSet["stav_rezervacie"].value = "Schválená";
+
 					workflowService.save(useCase);
 
 
