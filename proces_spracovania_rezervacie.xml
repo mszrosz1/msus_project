@@ -3,7 +3,7 @@
 	<id>new_model</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>New Model</title>
+	<title>sprac_rez</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
@@ -275,7 +275,7 @@
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -442,51 +442,30 @@
 		</dataGroup>
 		<event type="finish">
 			<id>1</id>
-			<actions phase="pre">
+			<actions phase="post">
 				<action>
-<!--					zakaznik : f.zakaznik,-->
-<!--					recepcny : f.recepcny,-->
-<!--					uvodne_info : f.uvodne_info,-->
-<!--					od : f.od,-->
-<!--					pocet_noci : f.pocet_noci,-->
-<!--					pocet_lozok : f.pocet_lozok,-->
-<!--					vyber_izby : f.vyber_izby,-->
-<!--					vybava_izby : f.vybava_izby,-->
-<!--					domace_zviera : f.pristelka,-->
-<!--					cena : f.cena,-->
-<!--					meno : f.meno,-->
-<!--					priezvisko : f.priezvisko,-->
-<!--					datum_narodenia : f.datum_narodenia,-->
-<!--					email : f.email,-->
-<!--					tel_cislo : f.tel_cislo,-->
-<!--					mesto : f.mesto,-->
-<!--					cislo_domu : f.cislo_domu,-->
-<!--					stat : f.stat,-->
-<!--					info : f.info;-->
 
-<!--					def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")-->
+					boolean_0 :f.boolean_0;
 
-<!--					newCase.dataSet["zakaznik"].value = zakaznik.value.toString();-->
-<!--					newCase.dataSet["recepcny"].value = recepcny.value.toString();-->
-<!--					newCase.dataSet["uvodne_info"].value = uvodne_info.value.toString();-->
-<!--					newCase.dataSet["od"].value = od.value.toString();-->
-<!--					newCase.dataSet["pocet_noci"].value = pocet_noci.value.toString();-->
-<!--					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value.toString();-->
-<!--					newCase.dataSet["vyber_izby"].value = vyber_izby.value.toString();-->
-<!--					newCase.dataSet["vybava_izby"].value = vybava_izby.value.toString();-->
-<!--					newCase.dataSet["domace_zviera"].value = domace_zviera.value.toString();-->
-<!--					newCase.dataSet["cena"].value = cena.value.toString();-->
-<!--					newCase.dataSet["meno"].value = meno.value.toString();-->
-<!--					newCase.dataSet["priezvisko"].value = priezvisko.value.toString();-->
-<!--					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value.toString();-->
-<!--					newCase.dataSet["tel_cislo"].value = tel_cislo.value.toString();-->
-<!--					newCase.dataSet["mesto"].value = mesto.value.toString();-->
-<!--					newCase.dataSet["cislo_domu"].value = cislo_domu.value.toString();-->
-<!--					newCase.dataSet["stat"].value = stat.value.toString();-->
-<!--					newCase.dataSet["info"].value = info.value.toString();-->
+					if(boolean_0 == true){
 
 
-<!--					workflowService.save(newCase)-->
+
+					def task = findTask({it.transitionId.eq("22")})
+
+					assignTask(task)
+					finishTask(task)
+
+					}
+					else{
+
+
+					def task1 = findTask({it.transitionId.eq("23")})
+					assignTask(task1)
+					finishTask(task1)
+
+					}
+
 				</action>
 			</actions>
 		</event>
@@ -582,11 +561,6 @@
 			<offset>0</offset>
 		</layout>
 		<label>akceptovanie alt. ponuky</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-			</logic>
-		</roleRef>
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
@@ -599,11 +573,6 @@
 			<offset>0</offset>
 		</layout>
 		<label>odmietnutie alt. ponuky</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-			</logic>
-		</roleRef>
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
@@ -621,6 +590,59 @@
 			<logic>
 			</logic>
 		</roleRef>
+		<event type="finish">
+			<id>2</id>
+			<actions phase="pre">
+				<action>
+
+<!--					zakaznik : f.zakaznik,-->
+<!--					recepcny : f.recepcny,-->
+<!--					uvodne_info : f.uvodne_info,-->
+<!--					od : f.od,-->
+<!--					pocet_noci : f.pocet_noci,-->
+<!--					pocet_lozok : f.pocet_lozok,-->
+<!--					vyber_izby : f.vyber_izby,-->
+<!--					vybava_izby : f.vybava_izby,-->
+<!--					domace_zviera : f.pristelka,-->
+<!--					cena : f.cena,-->
+<!--					meno : f.meno,-->
+<!--					priezvisko : f.priezvisko,-->
+<!--					datum_narodenia : f.datum_narodenia,-->
+<!--					email : f.email,-->
+<!--					tel_cislo : f.tel_cislo,-->
+<!--					mesto : f.mesto,-->
+<!--					cislo_domu : f.cislo_domu,-->
+<!--					stat : f.stat,-->
+<!--					info : f.info;-->
+
+<!--					def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")-->
+
+<!--					newCase.dataSet["zakaznik"].value = zakaznik.value.toString();-->
+<!--					newCase.dataSet["recepcny"].value = recepcny.value.toString();-->
+<!--					newCase.dataSet["uvodne_info"].value = uvodne_info.value.toString();-->
+<!--					newCase.dataSet["od"].value = od.value.toString();-->
+<!--					newCase.dataSet["pocet_noci"].value = pocet_noci.value.toString();-->
+<!--					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value.toString();-->
+<!--					newCase.dataSet["vyber_izby"].value = vyber_izby.value.toString();-->
+<!--					newCase.dataSet["vybava_izby"].value = vybava_izby.value.toString();-->
+<!--					newCase.dataSet["domace_zviera"].value = domace_zviera.value.toString();-->
+<!--					newCase.dataSet["cena"].value = cena.value.toString();-->
+<!--					newCase.dataSet["meno"].value = meno.value.toString();-->
+<!--					newCase.dataSet["priezvisko"].value = priezvisko.value.toString();-->
+<!--					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value.toString();-->
+<!--					newCase.dataSet["tel_cislo"].value = tel_cislo.value.toString();-->
+<!--					newCase.dataSet["mesto"].value = mesto.value.toString();-->
+<!--					newCase.dataSet["cislo_domu"].value = cislo_domu.value.toString();-->
+<!--					newCase.dataSet["stat"].value = stat.value.toString();-->
+<!--					newCase.dataSet["info"].value = info.value.toString();-->
+
+
+<!--					workflowService.save(newCase)-->
+
+
+				</action>
+			</actions>
+		</event>
 	</transition>
 	<transition>
 		<id>46</id>
@@ -661,7 +683,7 @@
 			<dataRef>
 				<id>text_0</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -768,7 +790,7 @@
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
