@@ -3,7 +3,7 @@
 	<id>new_model</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>sprac_rez</title>
+	<title>New Model</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
@@ -165,7 +165,6 @@
 		</roleRef>
 		<dataGroup>
 			<id>DataGroup_1</id>
-			<layout>grid</layout>
 			<dataRef>
 				<id>boolean_0</id>
 				<logic>
@@ -178,6 +177,7 @@
 					<cols>4</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 		</dataGroup>
@@ -270,6 +270,7 @@
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -299,6 +300,7 @@
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -447,23 +449,19 @@
 
 					boolean_0 :f.boolean_0;
 
-					if(boolean_0 == true){
+					if(boolean_0.value){
 
-
-
-					def task = findTask({it.transitionId.eq("22")})
-
-					assignTask(task)
-					finishTask(task)
+					async.run{
+					assignTask("35")
+					finishTask("35")
+					}
 
 					}
 					else{
-
-
-					def task1 = findTask({it.transitionId.eq("23")})
-					assignTask(task1)
-					finishTask(task1)
-
+					async.run{
+					assignTask("51")
+					finishTask("51")
+					}
 					}
 
 				</action>
@@ -561,6 +559,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>akceptovanie alt. ponuky</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
@@ -573,6 +579,14 @@
 			<offset>0</offset>
 		</layout>
 		<label>odmietnutie alt. ponuky</label>
+		<roleRef>
+			<id>zakaznik</id>
+			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
+			</logic>
+		</roleRef>
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
@@ -588,56 +602,21 @@
 		<roleRef>
 			<id>recepcny</id>
 			<logic>
+				<perform>true</perform>
+				<delegate>true</delegate>
+				<view>true</view>
 			</logic>
 		</roleRef>
 		<event type="finish">
 			<id>2</id>
-			<actions phase="pre">
+			<actions phase="post">
 				<action>
 
-<!--					zakaznik : f.zakaznik,-->
-<!--					recepcny : f.recepcny,-->
-<!--					uvodne_info : f.uvodne_info,-->
-<!--					od : f.od,-->
-<!--					pocet_noci : f.pocet_noci,-->
-<!--					pocet_lozok : f.pocet_lozok,-->
-<!--					vyber_izby : f.vyber_izby,-->
-<!--					vybava_izby : f.vybava_izby,-->
-<!--					domace_zviera : f.pristelka,-->
-<!--					cena : f.cena,-->
-<!--					meno : f.meno,-->
-<!--					priezvisko : f.priezvisko,-->
-<!--					datum_narodenia : f.datum_narodenia,-->
-<!--					email : f.email,-->
-<!--					tel_cislo : f.tel_cislo,-->
-<!--					mesto : f.mesto,-->
-<!--					cislo_domu : f.cislo_domu,-->
-<!--					stat : f.stat,-->
-<!--					info : f.info;-->
-
-<!--					def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")-->
-
-<!--					newCase.dataSet["zakaznik"].value = zakaznik.value.toString();-->
-<!--					newCase.dataSet["recepcny"].value = recepcny.value.toString();-->
-<!--					newCase.dataSet["uvodne_info"].value = uvodne_info.value.toString();-->
-<!--					newCase.dataSet["od"].value = od.value.toString();-->
-<!--					newCase.dataSet["pocet_noci"].value = pocet_noci.value.toString();-->
-<!--					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value.toString();-->
-<!--					newCase.dataSet["vyber_izby"].value = vyber_izby.value.toString();-->
-<!--					newCase.dataSet["vybava_izby"].value = vybava_izby.value.toString();-->
-<!--					newCase.dataSet["domace_zviera"].value = domace_zviera.value.toString();-->
-<!--					newCase.dataSet["cena"].value = cena.value.toString();-->
-<!--					newCase.dataSet["meno"].value = meno.value.toString();-->
-<!--					newCase.dataSet["priezvisko"].value = priezvisko.value.toString();-->
-<!--					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value.toString();-->
-<!--					newCase.dataSet["tel_cislo"].value = tel_cislo.value.toString();-->
-<!--					newCase.dataSet["mesto"].value = mesto.value.toString();-->
-<!--					newCase.dataSet["cislo_domu"].value = cislo_domu.value.toString();-->
-<!--					newCase.dataSet["stat"].value = stat.value.toString();-->
-<!--					newCase.dataSet["info"].value = info.value.toString();-->
-
-
-<!--					workflowService.save(newCase)-->
+<!--					Case useCase = findCase( { it.title.eq("Rezervacia") & it.processIdentifier.eq("Rezervacia") } );-->
+					def useCase = findCase( { it.title.eq("Rezervacia") &amp; it.processIdentifier.eq("5f86b233f9ac3b272d6ba3dd_rezervacia")} );
+<!--					useCase.dataSet["stav_rezervacie"].value = "Schválená";-->
+					change
+					workflowService.save(useCase);
 
 
 				</action>
@@ -662,7 +641,6 @@
 		</roleRef>
 		<dataGroup>
 			<id>DataGroup_2</id>
-			<layout>grid</layout>
 			<dataRef>
 				<id>boolean_1</id>
 				<logic>
@@ -675,6 +653,7 @@
 					<cols>4</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 		</dataGroup>
@@ -785,6 +764,7 @@
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -814,6 +794,7 @@
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
+					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -954,51 +935,26 @@
 		</dataGroup>
 		<event type="finish">
 			<id>1</id>
-			<actions phase="pre">
+			<actions phase="post">
 				<action>
-<!--					zakaznik : f.zakaznik,-->
-<!--					recepcny : f.recepcny,-->
-<!--					uvodne_info : f.uvodne_info,-->
-<!--					od : f.od,-->
-<!--					pocet_noci : f.pocet_noci,-->
-<!--					pocet_lozok : f.pocet_lozok,-->
-<!--					vyber_izby : f.vyber_izby,-->
-<!--					vybava_izby : f.vybava_izby,-->
-<!--					domace_zviera : f.pristelka,-->
-<!--					cena : f.cena,-->
-<!--					meno : f.meno,-->
-<!--					priezvisko : f.priezvisko,-->
-<!--					datum_narodenia : f.datum_narodenia,-->
-<!--					email : f.email,-->
-<!--					tel_cislo : f.tel_cislo,-->
-<!--					mesto : f.mesto,-->
-<!--					cislo_domu : f.cislo_domu,-->
-<!--					stat : f.stat,-->
-<!--					info : f.info;-->
 
-<!--					def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")-->
+					boolean_1 :f.boolean_1;
 
-<!--					newCase.dataSet["zakaznik"].value = zakaznik.value.toString();-->
-<!--					newCase.dataSet["recepcny"].value = recepcny.value.toString();-->
-<!--					newCase.dataSet["uvodne_info"].value = uvodne_info.value.toString();-->
-<!--					newCase.dataSet["od"].value = od.value.toString();-->
-<!--					newCase.dataSet["pocet_noci"].value = pocet_noci.value.toString();-->
-<!--					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value.toString();-->
-<!--					newCase.dataSet["vyber_izby"].value = vyber_izby.value.toString();-->
-<!--					newCase.dataSet["vybava_izby"].value = vybava_izby.value.toString();-->
-<!--					newCase.dataSet["domace_zviera"].value = domace_zviera.value.toString();-->
-<!--					newCase.dataSet["cena"].value = cena.value.toString();-->
-<!--					newCase.dataSet["meno"].value = meno.value.toString();-->
-<!--					newCase.dataSet["priezvisko"].value = priezvisko.value.toString();-->
-<!--					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value.toString();-->
-<!--					newCase.dataSet["tel_cislo"].value = tel_cislo.value.toString();-->
-<!--					newCase.dataSet["mesto"].value = mesto.value.toString();-->
-<!--					newCase.dataSet["cislo_domu"].value = cislo_domu.value.toString();-->
-<!--					newCase.dataSet["stat"].value = stat.value.toString();-->
-<!--					newCase.dataSet["info"].value = info.value.toString();-->
+					if(boolean_1.value){
 
+					async.run{
+					assignTask("22")
+					finishTask("22")
+					}
 
-<!--					workflowService.save(newCase)-->
+					}
+					else{
+					async.run{
+					assignTask("23")
+					finishTask("23")
+					}
+					}
+
 				</action>
 			</actions>
 		</event>
