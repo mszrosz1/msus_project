@@ -20,6 +20,7 @@
 	<data type="date">
 		<id>od</id>
 		<title>Od</title>
+        <valid>between today,future</valid>
 	</data>
 	<data type="number">
 		<id>pocet_noci</id>
@@ -30,10 +31,16 @@
 	<data type="enumeration">
 		<id>pocet_lozok</id>
 		<title>Počet lôžok</title>
+        <values>1</values>
 		<values>2</values>
 		<values>3</values>
 		<values>4</values>
-		<init>2</init>
+		<init>1</init>
+	</data>
+    <data type="number">
+		<id>cena</id>
+		<title>Výsledná cena</title>
+		<init>0</init>
 	</data>
 	<data type="enumeration">
 		<id>vyber_izby</id>
@@ -43,8 +50,12 @@
 		<values>Deluxe izba</values>
 		<values>Apartmán</values>
 		<init>Základná izba</init>
-		<action id="1" trigger="set">vyber_izby: f.vyber_izby,
-		vybava_izby: f.vybava_izby;
+		<action id="1" trigger="set">
+        vyber_izby: f.vyber_izby,
+		vybava_izby: f.vybava_izby,
+        pocet_noci: f.pocet_noci,
+        pocet_lozok: f.pocet_lozok,
+        cena: f.cena;
 
 		if(vyber_izby.value == "Základná izba") {
 			change vybava_izby value {
@@ -56,6 +67,7 @@
 			change vybava_izby value {
 				return ["Minibar","Trezor","Sprchovací kút","Telefón","Bezplatné wifi"];
 			}
+
 		}
 		
 		if(vyber_izby.value == "Deluxe izba") {
@@ -68,6 +80,7 @@
 			change vybava_izby value {
 				return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko","Vstup do fitnesscentra"];
 			}
+
 		}
 		</action>
 	</data>
@@ -98,11 +111,6 @@
 		<id>pristelka</id>
 		<title>S prístelkou</title>
 		<init>false</init>
-	</data>
-	<data type="number">
-		<id>cena</id>
-		<title>Výsledná cena</title>
-		<init>0</init>
 	</data>
 	<data type="text">
 		<id>meno</id>
@@ -268,6 +276,22 @@
 				<id>vyber_izby</id>
 				<logic>
 					<behavior>editable</behavior>
+                    <behavior>required</behavior>
+                    <action id="10" trigger="set">
+                        vyber_izby: f.this,
+                        pocet_lozok: f.pocet_locok,
+                        pocet_noci: f.pocet_noci,
+                        cena: f.cena;
+
+		                change cena value {
+                            def c = 1;
+                            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_dni.value * pocet_lozok.value ;}
+                            if(vyber_izby.value == "Business izba") {c = 100 * pocet_dni.value * pocet_lozok.value;}
+                            if(vyber_izby.value == "Deluxe izba") {c = 125 * pocet_dni.value * pocet_lozok.value;}
+                            if(vyber_izby.value == "Apartmán") {c = 160 * pocet_dni.value * pocet_lozok.value;}
+                            return c;
+                        }
+	                </action>
 				</logic>
 				<layout>
 					<x>0</x>
