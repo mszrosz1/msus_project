@@ -1,22 +1,9 @@
-<!-- - vytvorit boolean field na prvom pr.
-- daf task = assign()
-def newCase = ...
-def task1 = assign()
-finish()...
-workflow.save...
-finish(task)
-- rozbit prechod zamietnutie rezervacie na dva dalsie prechody
-- vypocet ceny
-- doplnit novu ponuku
-- vytvorit dalsi boolean field
-- doplnit medziprocesovu kom. -->
-
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>spracovanie_rezervacie</id>
+	<id>new_model</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>Spracovanie rezervacie</title>
+	<title>New Model</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
@@ -148,12 +135,22 @@ finish(task)
 		<values>area</values>
 		<init>sorry bro</init>
 	</data>
+	<data type="boolean">
+		<id>boolean_0</id>
+		<title>Scháliť rezerváciu</title>
+		<init>false</init>
+	</data>
+	<data type="boolean">
+		<id>boolean_1</id>
+		<title>akceptovať alternatívnu ponuku</title>
+		<init>false</init>
+	</data>
 	<!-- I18NS -->
 	<!-- TRANSITIONS -->
 	<transition>
 		<id>2</id>
-		<x>606</x>
-		<y>88</y>
+		<x>602</x>
+		<y>80</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
@@ -166,6 +163,24 @@ finish(task)
 				<view>true</view>
 			</logic>
 		</roleRef>
+		<dataGroup>
+			<id>DataGroup_1</id>
+			<layout>grid</layout>
+			<dataRef>
+				<id>boolean_0</id>
+				<logic>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>7</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+				</layout>
+			</dataRef>
+		</dataGroup>
 		<dataGroup>
 			<id>DataGroup_0</id>
 			<dataRef>
@@ -236,8 +251,8 @@ finish(task)
 				<layout>
 					<x>0</x>
 					<y>2</y>
-					<rows>1</rows>
-					<cols>1</cols>
+					<rows>3</rows>
+					<cols>4</cols>
 					<offset>0</offset>
 					<template>material</template>
 					<appearance>outline</appearance>
@@ -249,25 +264,24 @@ finish(task)
 					<behavior>visible</behavior>
 				</logic>
 				<layout>
-					<x>1</x>
+					<x>2</x>
 					<y>1</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>visible</behavior>
+					<behavior>editable</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
 					<y>1</y>
 					<rows>1</rows>
-					<cols>1</cols>
+					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
 					<appearance>outline</appearance>
@@ -279,13 +293,12 @@ finish(task)
 					<behavior>visible</behavior>
 				</logic>
 				<layout>
-					<x>2</x>
+					<x>3</x>
 					<y>1</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -295,7 +308,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>0</x>
-					<y>3</y>
+					<y>5</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -310,7 +323,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>1</x>
-					<y>3</y>
+					<y>5</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -325,7 +338,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>3</x>
-					<y>3</y>
+					<y>5</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -340,7 +353,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>3</y>
+					<y>5</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -355,7 +368,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -370,7 +383,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>3</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -385,7 +398,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>1</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -400,7 +413,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>0</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -427,15 +440,65 @@ finish(task)
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
+		<event type="finish">
+			<id>1</id>
+			<actions phase="pre">
+				<action>
+<!--					zakaznik : f.zakaznik,-->
+<!--					recepcny : f.recepcny,-->
+<!--					uvodne_info : f.uvodne_info,-->
+<!--					od : f.od,-->
+<!--					pocet_noci : f.pocet_noci,-->
+<!--					pocet_lozok : f.pocet_lozok,-->
+<!--					vyber_izby : f.vyber_izby,-->
+<!--					vybava_izby : f.vybava_izby,-->
+<!--					domace_zviera : f.pristelka,-->
+<!--					cena : f.cena,-->
+<!--					meno : f.meno,-->
+<!--					priezvisko : f.priezvisko,-->
+<!--					datum_narodenia : f.datum_narodenia,-->
+<!--					email : f.email,-->
+<!--					tel_cislo : f.tel_cislo,-->
+<!--					mesto : f.mesto,-->
+<!--					cislo_domu : f.cislo_domu,-->
+<!--					stat : f.stat,-->
+<!--					info : f.info;-->
+
+<!--					def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")-->
+
+<!--					newCase.dataSet["zakaznik"].value = zakaznik.value.toString();-->
+<!--					newCase.dataSet["recepcny"].value = recepcny.value.toString();-->
+<!--					newCase.dataSet["uvodne_info"].value = uvodne_info.value.toString();-->
+<!--					newCase.dataSet["od"].value = od.value.toString();-->
+<!--					newCase.dataSet["pocet_noci"].value = pocet_noci.value.toString();-->
+<!--					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value.toString();-->
+<!--					newCase.dataSet["vyber_izby"].value = vyber_izby.value.toString();-->
+<!--					newCase.dataSet["vybava_izby"].value = vybava_izby.value.toString();-->
+<!--					newCase.dataSet["domace_zviera"].value = domace_zviera.value.toString();-->
+<!--					newCase.dataSet["cena"].value = cena.value.toString();-->
+<!--					newCase.dataSet["meno"].value = meno.value.toString();-->
+<!--					newCase.dataSet["priezvisko"].value = priezvisko.value.toString();-->
+<!--					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value.toString();-->
+<!--					newCase.dataSet["tel_cislo"].value = tel_cislo.value.toString();-->
+<!--					newCase.dataSet["mesto"].value = mesto.value.toString();-->
+<!--					newCase.dataSet["cislo_domu"].value = cislo_domu.value.toString();-->
+<!--					newCase.dataSet["stat"].value = stat.value.toString();-->
+<!--					newCase.dataSet["info"].value = info.value.toString();-->
+
+
+<!--					workflowService.save(newCase)-->
+				</action>
+			</actions>
+		</event>
 	</transition>
 	<transition>
 		<id>8</id>
-		<x>719</x>
-		<y>205</y>
+		<x>717</x>
+		<y>280</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label>zamietnuiet rezervaciu/poslat inu ponuku</label>
+		<label>vytvorit alternatívnu ponuku</label>
 		<roleRef>
 			<id>recepcny</id>
 			<logic>
@@ -494,13 +557,13 @@ finish(task)
 			<dataRef>
 				<id>vybava_izby</id>
 				<logic>
-					<behavior>editable</behavior>
+					<behavior>visible</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
 					<y>2</y>
 					<rows>2</rows>
-					<cols>2</cols>
+					<cols>4</cols>
 					<offset>0</offset>
 					<template>material</template>
 					<appearance>outline</appearance>
@@ -513,8 +576,8 @@ finish(task)
 	</transition>
 	<transition>
 		<id>22</id>
-		<x>618</x>
-		<y>480</y>
+		<x>576</x>
+		<y>572</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
@@ -522,9 +585,6 @@ finish(task)
 		<roleRef>
 			<id>zakaznik</id>
 			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
 			</logic>
 		</roleRef>
 		<dataGroup>
@@ -533,8 +593,8 @@ finish(task)
 	</transition>
 	<transition>
 		<id>23</id>
-		<x>800</x>
-		<y>482</y>
+		<x>829</x>
+		<y>573</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
@@ -542,9 +602,6 @@ finish(task)
 		<roleRef>
 			<id>zakaznik</id>
 			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
 			</logic>
 		</roleRef>
 		<dataGroup>
@@ -562,16 +619,13 @@ finish(task)
 		<roleRef>
 			<id>recepcny</id>
 			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
 			</logic>
 		</roleRef>
 	</transition>
 	<transition>
 		<id>46</id>
-		<x>713</x>
-		<y>351</y>
+		<x>717</x>
+		<y>429</y>
 		<layout>
 			<offset>0</offset>
 		</layout>
@@ -584,6 +638,24 @@ finish(task)
 				<view>true</view>
 			</logic>
 		</roleRef>
+		<dataGroup>
+			<id>DataGroup_2</id>
+			<layout>grid</layout>
+			<dataRef>
+				<id>boolean_1</id>
+				<logic>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>8</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+				</layout>
+			</dataRef>
+		</dataGroup>
 		<dataGroup>
 			<id>DataGroup_1</id>
 			<dataRef>
@@ -672,8 +744,8 @@ finish(task)
 				<layout>
 					<x>0</x>
 					<y>3</y>
-					<rows>1</rows>
-					<cols>1</cols>
+					<rows>3</rows>
+					<cols>4</cols>
 					<offset>0</offset>
 					<template>material</template>
 					<appearance>outline</appearance>
@@ -691,13 +763,12 @@ finish(task)
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
 				<id>cena</id>
 				<logic>
-					<behavior>visible</behavior>
+					<behavior>editable</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -721,7 +792,6 @@ finish(task)
 					<cols>1</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance></appearance>
 				</layout>
 			</dataRef>
 			<dataRef>
@@ -731,7 +801,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>0</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -746,7 +816,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>1</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -761,7 +831,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>3</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -776,7 +846,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>4</y>
+					<y>6</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -791,7 +861,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>2</x>
-					<y>5</y>
+					<y>7</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -806,7 +876,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>3</x>
-					<y>5</y>
+					<y>7</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -821,7 +891,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>1</x>
-					<y>5</y>
+					<y>7</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -836,7 +906,7 @@ finish(task)
 				</logic>
 				<layout>
 					<x>0</x>
-					<y>5</y>
+					<y>7</y>
 					<rows>1</rows>
 					<cols>1</cols>
 					<offset>0</offset>
@@ -860,6 +930,65 @@ finish(task)
 				</layout>
 			</dataRef>
 		</dataGroup>
+		<event type="finish">
+			<id>1</id>
+			<actions phase="pre">
+				<action>
+<!--					zakaznik : f.zakaznik,-->
+<!--					recepcny : f.recepcny,-->
+<!--					uvodne_info : f.uvodne_info,-->
+<!--					od : f.od,-->
+<!--					pocet_noci : f.pocet_noci,-->
+<!--					pocet_lozok : f.pocet_lozok,-->
+<!--					vyber_izby : f.vyber_izby,-->
+<!--					vybava_izby : f.vybava_izby,-->
+<!--					domace_zviera : f.pristelka,-->
+<!--					cena : f.cena,-->
+<!--					meno : f.meno,-->
+<!--					priezvisko : f.priezvisko,-->
+<!--					datum_narodenia : f.datum_narodenia,-->
+<!--					email : f.email,-->
+<!--					tel_cislo : f.tel_cislo,-->
+<!--					mesto : f.mesto,-->
+<!--					cislo_domu : f.cislo_domu,-->
+<!--					stat : f.stat,-->
+<!--					info : f.info;-->
+
+<!--					def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")-->
+
+<!--					newCase.dataSet["zakaznik"].value = zakaznik.value.toString();-->
+<!--					newCase.dataSet["recepcny"].value = recepcny.value.toString();-->
+<!--					newCase.dataSet["uvodne_info"].value = uvodne_info.value.toString();-->
+<!--					newCase.dataSet["od"].value = od.value.toString();-->
+<!--					newCase.dataSet["pocet_noci"].value = pocet_noci.value.toString();-->
+<!--					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value.toString();-->
+<!--					newCase.dataSet["vyber_izby"].value = vyber_izby.value.toString();-->
+<!--					newCase.dataSet["vybava_izby"].value = vybava_izby.value.toString();-->
+<!--					newCase.dataSet["domace_zviera"].value = domace_zviera.value.toString();-->
+<!--					newCase.dataSet["cena"].value = cena.value.toString();-->
+<!--					newCase.dataSet["meno"].value = meno.value.toString();-->
+<!--					newCase.dataSet["priezvisko"].value = priezvisko.value.toString();-->
+<!--					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value.toString();-->
+<!--					newCase.dataSet["tel_cislo"].value = tel_cislo.value.toString();-->
+<!--					newCase.dataSet["mesto"].value = mesto.value.toString();-->
+<!--					newCase.dataSet["cislo_domu"].value = cislo_domu.value.toString();-->
+<!--					newCase.dataSet["stat"].value = stat.value.toString();-->
+<!--					newCase.dataSet["info"].value = info.value.toString();-->
+
+
+<!--					workflowService.save(newCase)-->
+				</action>
+			</actions>
+		</event>
+	</transition>
+	<transition>
+		<id>51</id>
+		<x>713</x>
+		<y>174</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label>zamietnutie rezervacie</label>
 	</transition>
 	<!-- PLACES -->
 	<place>
@@ -872,8 +1001,8 @@ finish(task)
 	</place>
 	<place>
 		<id>11</id>
-		<x>482</x>
-		<y>587</y>
+		<x>492</x>
+		<y>678</y>
 		<label></label>
 		<tokens>0</tokens>
 		<static>false</static>
@@ -881,15 +1010,15 @@ finish(task)
 	<place>
 		<id>21</id>
 		<x>717</x>
-		<y>296</y>
+		<y>356</y>
 		<label></label>
 		<tokens>0</tokens>
 		<static>false</static>
 	</place>
 	<place>
 		<id>28</id>
-		<x>847</x>
-		<y>579</y>
+		<x>867</x>
+		<y>653</y>
 		<label></label>
 		<tokens>0</tokens>
 		<static>false</static>
@@ -904,8 +1033,16 @@ finish(task)
 	</place>
 	<place>
 		<id>45</id>
+		<x>713</x>
+		<y>514</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>52</id>
 		<x>715</x>
-		<y>425</y>
+		<y>223</y>
 		<label></label>
 		<tokens>0</tokens>
 		<static>false</static>
@@ -930,13 +1067,6 @@ finish(task)
 		<type>regular</type>
 		<sourceId>2</sourceId>
 		<destinationId>34</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>38</id>
-		<type>regular</type>
-		<sourceId>34</sourceId>
-		<destinationId>8</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
 	<arc>
@@ -993,6 +1123,27 @@ finish(task)
 		<type>regular</type>
 		<sourceId>45</sourceId>
 		<destinationId>22</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>53</id>
+		<type>regular</type>
+		<sourceId>34</sourceId>
+		<destinationId>51</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>54</id>
+		<type>regular</type>
+		<sourceId>51</sourceId>
+		<destinationId>52</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>55</id>
+		<type>regular</type>
+		<sourceId>52</sourceId>
+		<destinationId>8</destinationId>
 		<multiplicity>1</multiplicity>
 	</arc>
 </document>

@@ -9,8 +9,6 @@
 - medziprocesova komunikacia (setData)
 newCase.dataSet["podproces_data"].value = proces_data.value.toString();
 -->
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
 	<id>proces_rezervacie_new</id>
