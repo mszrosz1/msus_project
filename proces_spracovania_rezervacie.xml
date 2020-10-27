@@ -32,13 +32,11 @@
 		<title>Počet nocí</title>
 		<init>1</init>
 	</data>
-	<data type="enumeration">
+	<data type="number">
 		<id>pocet_lozok</id>
 		<title>Počet lôžok</title>
-		<values>2</values>
-		<values>3</values>
-		<values>4</values>
-		<init>2</init>
+		<init>1</init>
+        <valid>inrange 1,4</valid>
 	</data>
 	<data type="enumeration">
 		<id>vyber_izby</id>
