@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-  <id>proces_rezervacie_new</id>
+	<id>proces_rezervacie_new</id>
 	<initials>NEW</initials>
 	<title>Proces rezervacie</title>
 	<defaultRole>true</defaultRole>
@@ -154,7 +154,7 @@
 		<values>area</values>
 	</data>
 	<data type="multichoice">
-		<id>multichoice_0</id>
+		<id>suhlas_multi</id>
 		<title>Súhlas</title>
 		<placeholder>placeholder</placeholder>
 		<desc>description</desc>
@@ -801,14 +801,36 @@
 					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance></appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>suhlas_multi</id>
+				<logic>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>14</y>
+					<rows>3</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
 				</layout>
 			</dataRef>
 		</dataGroup>
-        <event type="finish">
-            <id>1</id>
-            <actions phase="post">
-                <action>
+		<event type="finish">
+			<id>1</id>
+			<actions phase="pre">
+			<action>
+				suhlas: f.suhlas_multi;
+				if (suhlas.value.size() &lt; 3) {
+					throw new IllegalArgumentException("Musíte poskytnúť všetky súhlasy !")
+				}
+			</action>
+			</actions>
+			<actions phase="post">
+				<action>
 					ulica: f.ulica,
 					pristelka:f.pristelka,
 					email : f.email,
