@@ -136,10 +136,12 @@
 	<data type="text">
 		<id>email</id>
 		<title>Emailova adresa</title>
+        <valid>email</valid>
 	</data>
 	<data type="text">
 		<id>tel_cislo</id>
 		<title>Telefónne číslo</title>
+        <valid>regex("^[+]([0-9]+)([ ]?[0-9])+\$")</valid>
 	</data>
 	<data type="text">
 		<id>mesto</id>
