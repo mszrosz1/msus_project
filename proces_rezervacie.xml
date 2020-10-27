@@ -278,8 +278,8 @@
 					<behavior>editable</behavior>
                     <behavior>required</behavior>
                     <action id="10" trigger="set">
-                        vyber_izby: f.this,
-                        pocet_lozok: f.pocet_locok,
+                        vyber_izby: f.vyber_izby,
+                        pocet_lozok: f.pocet_lozok,
                         pocet_noci: f.pocet_noci,
                         cena: f.cena;
 
