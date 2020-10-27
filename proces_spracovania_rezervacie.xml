@@ -63,6 +63,39 @@
 		<values>Bezplatné wifi</values>
 		<values>Bezplatné parkovisko</values>
 		<values>Vstup do fitnesscentra</values>
+		<action id="1" trigger="set">
+			vyber_izby: f.vyber_izby,
+			vybava_izby: f.vybava_izby,
+			pocet_noci: f.pocet_noci,
+			pocet_lozok: f.pocet_lozok,
+			cena: f.cena;
+
+			if(vyber_izby.value == "Základná izba") {
+			change vybava_izby value {
+			return ["Minibar","Sprchovací kút"];
+			}
+			}
+
+			if(vyber_izby.value == "Business izba") {
+			change vybava_izby value {
+			return ["Minibar","Trezor","Sprchovací kút","Telefón","Bezplatné wifi"];
+			}
+
+			}
+
+			if(vyber_izby.value == "Deluxe izba") {
+			change vybava_izby value {
+			return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko"];
+			}
+			}
+
+			if(vyber_izby.value == "Apartmán") {
+			change vybava_izby value {
+			return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko","Vstup do fitnesscentra"];
+			}
+
+			}
+		</action>
 	</data>
 	<data type="boolean">
 		<id>domace_zviera</id>
@@ -566,6 +599,57 @@
 				<view>true</view>
 			</logic>
 		</roleRef>
+		<event type="finish">
+			<id>3</id>
+			<actions phase="post">
+				<action>
+					ulica: f.ulica,
+					pristelka:f.pristelka,
+					email : f.email,
+					od : f.od,
+					pocet_noci : f.pocet_noci,
+					pocet_lozok : f.pocet_lozok,
+					vyber_izby : f.vyber_izby,
+					vybava_izby : f.vybava_izby,
+					domace_zviera : f.domace_zviera,
+					cena : f.cena,
+					meno : f.meno,
+					priezvisko : f.priezvisko,
+					datum_narodenia : f.datum_narodenia,
+					uvodne_info:f.uvodne_info,
+					tel_cislo : f.tel_cislo,
+					mesto : f.mesto,
+					cislo_domu : f.cislo_domu,
+					stat : f.stat,
+					info : f.info;
+
+					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+
+					rezervacia.dataSet["ulica"].value = ulica.value;
+					rezervacia.dataSet["pristelka"].value = pristelka.value;
+					rezervacia.dataSet["email"].value = email.value;
+					rezervacia.dataSet["uvodne_info"].value = uvodne_info.value;
+					rezervacia.dataSet["od"].value = od.value;
+					rezervacia.dataSet["pocet_noci"].value = pocet_noci.value;
+					rezervacia.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					rezervacia.dataSet["vyber_izby"].value = vyber_izby.value;
+					rezervacia.dataSet["vybava_izby"].value = vybava_izby.value;
+					rezervacia.dataSet["domace_zviera"].value = domace_zviera.value;
+					rezervacia.dataSet["cena"].value = cena.value;
+					rezervacia.dataSet["meno"].value = meno.value;
+					rezervacia.dataSet["priezvisko"].value = priezvisko.value;
+					rezervacia.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					rezervacia.dataSet["tel_cislo"].value = tel_cislo.value;
+					rezervacia.dataSet["mesto"].value = mesto.value;
+					rezervacia.dataSet["cislo_domu"].value = cislo_domu.value;
+					rezervacia.dataSet["stat"].value = stat.value;
+					rezervacia.dataSet["info"].value = info.value;
+					rezervacia.dataSet["stav_rezervacie"].value = "Schválená";
+
+					workflowService.save(rezervacia);
+				</action>
+			</actions>
+		</event>
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
@@ -586,6 +670,57 @@
 				<view>true</view>
 			</logic>
 		</roleRef>
+		<event type="finish">
+			<id>2</id>
+			<actions phase="post">
+				<action>
+					ulica: f.ulica,
+					pristelka:f.pristelka,
+					email : f.email,
+					od : f.od,
+					pocet_noci : f.pocet_noci,
+					pocet_lozok : f.pocet_lozok,
+					vyber_izby : f.vyber_izby,
+					vybava_izby : f.vybava_izby,
+					domace_zviera : f.domace_zviera,
+					cena : f.cena,
+					meno : f.meno,
+					priezvisko : f.priezvisko,
+					datum_narodenia : f.datum_narodenia,
+					uvodne_info:f.uvodne_info,
+					tel_cislo : f.tel_cislo,
+					mesto : f.mesto,
+					cislo_domu : f.cislo_domu,
+					stat : f.stat,
+					info : f.info;
+
+					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+
+					rezervacia.dataSet["ulica"].value = ulica.value;
+					rezervacia.dataSet["pristelka"].value = pristelka.value;
+					rezervacia.dataSet["email"].value = email.value;
+					rezervacia.dataSet["uvodne_info"].value = uvodne_info.value;
+					rezervacia.dataSet["od"].value = od.value;
+					rezervacia.dataSet["pocet_noci"].value = pocet_noci.value;
+					rezervacia.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					rezervacia.dataSet["vyber_izby"].value = vyber_izby.value;
+					rezervacia.dataSet["vybava_izby"].value = vybava_izby.value;
+					rezervacia.dataSet["domace_zviera"].value = domace_zviera.value;
+					rezervacia.dataSet["cena"].value = cena.value;
+					rezervacia.dataSet["meno"].value = meno.value;
+					rezervacia.dataSet["priezvisko"].value = priezvisko.value;
+					rezervacia.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					rezervacia.dataSet["tel_cislo"].value = tel_cislo.value;
+					rezervacia.dataSet["mesto"].value = mesto.value;
+					rezervacia.dataSet["cislo_domu"].value = cislo_domu.value;
+					rezervacia.dataSet["stat"].value = stat.value;
+					rezervacia.dataSet["info"].value = info.value;
+					rezervacia.dataSet["stav_rezervacie"].value = "Zamietnutá";
+
+					workflowService.save(rezervacia);
+				</action>
+			</actions>
+		</event>
 		<dataGroup>
 			<id>initialDataGroup</id>
 		</dataGroup>
@@ -610,14 +745,50 @@
 			<id>2</id>
 			<actions phase="post">
 				<action>
+					ulica: f.ulica,
+					pristelka:f.pristelka,
+					email : f.email,
+					od : f.od,
+					pocet_noci : f.pocet_noci,
+					pocet_lozok : f.pocet_lozok,
+					vyber_izby : f.vyber_izby,
+					vybava_izby : f.vybava_izby,
+					domace_zviera : f.domace_zviera,
+					cena : f.cena,
+					meno : f.meno,
+					priezvisko : f.priezvisko,
+					datum_narodenia : f.datum_narodenia,
+					uvodne_info:f.uvodne_info,
+					tel_cislo : f.tel_cislo,
+					mesto : f.mesto,
+					cislo_domu : f.cislo_domu,
+					stat : f.stat,
+					info : f.info;
 
-<!--					Case useCase = findCase( { it.title.eq("Rezervacia") & it.processIdentifier.eq("Rezervacia") } );-->
-					def useCase = findCase( { it.title.eq("Rezervacia") &amp; it.processIdentifier.eq("5f86b233f9ac3b272d6ba3dd_rezervacia")} );
-					useCase.dataSet["stav_rezervacie"].value = "Schválená";
+					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
 
-					workflowService.save(useCase);
+					rezervacia.dataSet["ulica"].value = ulica.value;
+					rezervacia.dataSet["pristelka"].value = pristelka.value;
+					rezervacia.dataSet["email"].value = email.value;
+					rezervacia.dataSet["uvodne_info"].value = uvodne_info.value;
+					rezervacia.dataSet["od"].value = od.value;
+					rezervacia.dataSet["pocet_noci"].value = pocet_noci.value;
+					rezervacia.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					rezervacia.dataSet["vyber_izby"].value = vyber_izby.value;
+					rezervacia.dataSet["vybava_izby"].value = vybava_izby.value;
+					rezervacia.dataSet["domace_zviera"].value = domace_zviera.value;
+					rezervacia.dataSet["cena"].value = cena.value;
+					rezervacia.dataSet["meno"].value = meno.value;
+					rezervacia.dataSet["priezvisko"].value = priezvisko.value;
+					rezervacia.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					rezervacia.dataSet["tel_cislo"].value = tel_cislo.value;
+					rezervacia.dataSet["mesto"].value = mesto.value;
+					rezervacia.dataSet["cislo_domu"].value = cislo_domu.value;
+					rezervacia.dataSet["stat"].value = stat.value;
+					rezervacia.dataSet["info"].value = info.value;
+					rezervacia.dataSet["stav_rezervacie"].value = "Schválená";
 
-
+					workflowService.save(rezervacia);
 				</action>
 			</actions>
 		</event>
@@ -966,6 +1137,57 @@
 			<offset>0</offset>
 		</layout>
 		<label>zamietnutie rezervacie</label>
+		<event type="finish">
+			<id>2</id>
+			<actions phase="post">
+				<action>
+					ulica: f.ulica,
+					pristelka:f.pristelka,
+					email : f.email,
+					od : f.od,
+					pocet_noci : f.pocet_noci,
+					pocet_lozok : f.pocet_lozok,
+					vyber_izby : f.vyber_izby,
+					vybava_izby : f.vybava_izby,
+					domace_zviera : f.domace_zviera,
+					cena : f.cena,
+					meno : f.meno,
+					priezvisko : f.priezvisko,
+					datum_narodenia : f.datum_narodenia,
+					uvodne_info:f.uvodne_info,
+					tel_cislo : f.tel_cislo,
+					mesto : f.mesto,
+					cislo_domu : f.cislo_domu,
+					stat : f.stat,
+					info : f.info;
+
+					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+
+					rezervacia.dataSet["ulica"].value = ulica.value;
+					rezervacia.dataSet["pristelka"].value = pristelka.value;
+					rezervacia.dataSet["email"].value = email.value;
+					rezervacia.dataSet["uvodne_info"].value = uvodne_info.value;
+					rezervacia.dataSet["od"].value = od.value;
+					rezervacia.dataSet["pocet_noci"].value = pocet_noci.value;
+					rezervacia.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					rezervacia.dataSet["vyber_izby"].value = vyber_izby.value;
+					rezervacia.dataSet["vybava_izby"].value = vybava_izby.value;
+					rezervacia.dataSet["domace_zviera"].value = domace_zviera.value;
+					rezervacia.dataSet["cena"].value = cena.value;
+					rezervacia.dataSet["meno"].value = meno.value;
+					rezervacia.dataSet["priezvisko"].value = priezvisko.value;
+					rezervacia.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					rezervacia.dataSet["tel_cislo"].value = tel_cislo.value;
+					rezervacia.dataSet["mesto"].value = mesto.value;
+					rezervacia.dataSet["cislo_domu"].value = cislo_domu.value;
+					rezervacia.dataSet["stat"].value = stat.value;
+					rezervacia.dataSet["info"].value = info.value;
+					rezervacia.dataSet["stav_rezervacie"].value = "Zamietnutá";
+
+					workflowService.save(rezervacia);
+				</action>
+			</actions>
+		</event>
 	</transition>
 	<!-- PLACES -->
 	<place>

@@ -829,59 +829,29 @@
 					stat : f.stat,
 					info : f.info;
 
-					def newCase = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+					def sprac_rez = createCase("5f86b220f9ac3b272d6accf5_sprac_rez", "Spracovanie rezervacie")
 
+					sprac_rez.dataSet["ulica"].value = ulica.value;
+					sprac_rez.dataSet["pristelka"].value = pristelka.value;
+					sprac_rez.dataSet["email"].value = email.value;
+					sprac_rez.dataSet["uvodne_info"].value = uvodne_info.value;
+					sprac_rez.dataSet["od"].value = od.value;
+					sprac_rez.dataSet["pocet_noci"].value = pocet_noci.value;
+					sprac_rez.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					sprac_rez.dataSet["vyber_izby"].value = vyber_izby.value;
+					sprac_rez.dataSet["vybava_izby"].value = vybava_izby.value;
+					sprac_rez.dataSet["domace_zviera"].value = domace_zviera.value;
+					sprac_rez.dataSet["cena"].value = cena.value;
+					sprac_rez.dataSet["meno"].value = meno.value;
+					sprac_rez.dataSet["priezvisko"].value = priezvisko.value;
+					sprac_rez.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					sprac_rez.dataSet["tel_cislo"].value = tel_cislo.value;
+					sprac_rez.dataSet["mesto"].value = mesto.value;
+					sprac_rez.dataSet["cislo_domu"].value = cislo_domu.value;
+					sprac_rez.dataSet["stat"].value = stat.value;
+					sprac_rez.dataSet["info"].value = info.value;
 
-					newCase.dataSet["ulica"].value = ulica.value;
-					newCase.dataSet["pristelka"].value = pristelka.value;
-					newCase.dataSet["email"].value = email.value;
-					newCase.dataSet["uvodne_info"].value = uvodne_info.value;
-					newCase.dataSet["od"].value = od.value;
-					newCase.dataSet["pocet_noci"].value = pocet_noci.value;
-					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value;
-					newCase.dataSet["vyber_izby"].value = vyber_izby.value;
-					newCase.dataSet["vybava_izby"].value = vybava_izby.value;
-					newCase.dataSet["domace_zviera"].value = domace_zviera.value;
-					newCase.dataSet["cena"].value = cena.value;
-					newCase.dataSet["meno"].value = meno.value;
-					newCase.dataSet["priezvisko"].value = priezvisko.value;
-					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value;
-					newCase.dataSet["tel_cislo"].value = tel_cislo.value;
-					newCase.dataSet["mesto"].value = mesto.value;
-					newCase.dataSet["cislo_domu"].value = cislo_domu.value;
-					newCase.dataSet["stat"].value = stat.value;
-					newCase.dataSet["info"].value = info.value;
-
-
-
-					def newCase1 = createCase("5f86b220f9ac3b272d6accf5_sprac_rez", "Spracovanie rezervacie")
-
-
-					newCase1.dataSet["ulica"].value = ulica.value;
-					newCase1.dataSet["pristelka"].value = pristelka.value;
-					newCase1.dataSet["email"].value = email.value;
-					newCase1.dataSet["uvodne_info"].value = uvodne_info.value;
-					newCase1.dataSet["od"].value = od.value;
-					newCase1.dataSet["pocet_noci"].value = pocet_noci.value;
-					newCase1.dataSet["pocet_lozok"].value = pocet_lozok.value;
-					newCase1.dataSet["vyber_izby"].value = vyber_izby.value;
-					newCase1.dataSet["vybava_izby"].value = vybava_izby.value;
-					newCase1.dataSet["domace_zviera"].value = domace_zviera.value;
-					newCase1.dataSet["cena"].value = cena.value;
-					newCase1.dataSet["meno"].value = meno.value;
-					newCase1.dataSet["priezvisko"].value = priezvisko.value;
-					newCase1.dataSet["datum_narodenia"].value = datum_narodenia.value;
-					newCase1.dataSet["tel_cislo"].value = tel_cislo.value;
-					newCase1.dataSet["mesto"].value = mesto.value;
-					newCase1.dataSet["cislo_domu"].value = cislo_domu.value;
-					newCase1.dataSet["stat"].value = stat.value;
-					newCase1.dataSet["info"].value = info.value;
-
-
-					workflowService.save(newCase);
-					workflowService.save(newCase1);
-
-
+					workflowService.save(sprac_rez);
 				</action>
             </actions>
         </event>
@@ -1144,4 +1114,11 @@
         <destinationId>32</destinationId>
         <multiplicity>1</multiplicity>
     </arc>
+	<arc>
+		<id>41</id>
+		<type>inhibitor</type>
+		<sourceId>5</sourceId>
+		<destinationId>31</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
 </document>
