@@ -154,7 +154,7 @@
 		<values>area</values>
 	</data>
 	<data type="multichoice">
-		<id>multichoice_0</id>
+		<id>suhlas_multi</id>
 		<title>Súhlas</title>
 		<placeholder>placeholder</placeholder>
 		<desc>description</desc>
@@ -804,7 +804,7 @@
 				</layout>
 			</dataRef>
 			<dataRef>
-				<id>multichoice_0</id>
+				<id>suhlas_multi</id>
 				<logic>
 					<behavior>editable</behavior>
 				</logic>
@@ -823,8 +823,8 @@
 			<id>1</id>
 			<actions phase="pre">
 			<action id="4">
-				suhlas: f.multichoice_0;
-				if (f.suhlas.value != ["Súhlasím s obchodnými podmienkami","Súhlasím so spracovaním osobných údajov","Súhlasím so zaväznou platbou"] ) {
+				suhlas: f.suhlas_multi;
+				if (suhlas.value != ["Súhlasím s obchodnými podmienkami","Súhlasím so spracovaním osobných údajov","Súhlasím so zaväznou platbou"] ) {
 					throw new IllegalArgumentException("Musíte poskytnúť všetky súhlasy !")
 				}
 			</action>
