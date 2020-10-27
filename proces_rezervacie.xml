@@ -822,15 +822,15 @@
 		<event type="finish">
 			<id>1</id>
 			<actions phase="pre">
-			<action id="4">
+			<action>
 				suhlas: f.suhlas_multi;
-				if (suhlas.value != ["Súhlasím s obchodnými podmienkami","Súhlasím so spracovaním osobných údajov","Súhlasím so zaväznou platbou"] ) {
+				if (suhlas.value.size() &lt; 3) {
 					throw new IllegalArgumentException("Musíte poskytnúť všetky súhlasy !")
 				}
 			</action>
 			</actions>
 			<actions phase="post">
-				<action id="3">
+				<action>
 					ulica: f.ulica,
 					pristelka:f.pristelka,
 					email : f.email,
