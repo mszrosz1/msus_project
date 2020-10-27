@@ -537,6 +537,7 @@
 				<id>cena</id>
 				<logic>
 					<behavior>visible</behavior>
+					<behavior>editable</behavior>
 				</logic>
 				<layout>
 					<x>2</x>
