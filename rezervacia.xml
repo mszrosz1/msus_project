@@ -76,6 +76,11 @@
 		<title>S prístelkou</title>
 		<init>false</init>
 	</data>
+	<data type="boolean">
+		<id>feedback</id>
+		<title>Vyplniť feedback</title>
+		<init>true</init>
+	</data>
 	<data type="number">
 		<id>cena</id>
 		<title>Cena</title>
@@ -153,11 +158,11 @@
 		<title>Stav rezervácie</title>
 		<placeholder>Stav rezervácie</placeholder>
 		<values>Schválená</values>
-		<values>Čaká na schválenie</values>
 		<values>Ubytovaný</values>
 		<values>Zamietnutá</values>
 		<values>Zrušená</values>
 		<values>Zaplatená</values>
+		<values>Odubytovaný</values>
 	</data>
 	<data type="text">
 		<id>dovod_zrusenia</id>
@@ -171,23 +176,6 @@
 	</data>
 	<!-- I18NS -->
 	<!-- TRANSITIONS -->
-	<transition>
-		<id>2</id>
-		<x>500</x>
-		<y>340</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>Vytvoriť</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
-			</logic>
-		</roleRef>
-	</transition>
 	<transition>
 		<id>5</id>
 		<x>740</x>
@@ -702,7 +690,7 @@
 			<id>2</id>
 			<actions phase="pre">
 				<action>
-					def newCase = createCase("5f86b232f9ac3b272d6b91b9_reklamacia", "Reklamácia")
+					def newCase = createCase("5f86b220f9ac3b272d6accf5_reklamacia", "Reklamácia")
 					workflowService.save(newCase)
 				</action>
 			</actions>
@@ -1209,22 +1197,47 @@
 				<view>true</view>
 			</logic>
 		</roleRef>
+		<event type="finish">
+			<id>0</id>
+			<actions phase="post">
+				<action> stav_rezervacie: f.stav_rezervacie,
+					feedback: f.feedback;
+					if (feedback.value) {
+						def newCase = createCase("5f86b220f9ac3b272d6accf5_feedback", "Feedback")
+						workflowService.save(newCase)
+						change stav_rezervacie value { return "Odubytovaný" }
+					}
+				</action>
+			</actions>
+		</event>
+		<dataGroup>
+			<id>DataGroup_0</id>
+			<layout>grid</layout>
+			<dataRef>
+				<id>feedback</id>
+				<logic>
+					<behavior>visible</behavior>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>0</y>
+					<rows>1</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
+		</dataGroup>
 	</transition>
 	<!-- PLACES -->
-	<place>
-		<id>1</id>
-		<x>380</x>
-		<y>340</y>
-		<label></label>
-		<tokens>1</tokens>
-		<static>false</static>
-	</place>
 	<place>
 		<id>3</id>
 		<x>620</x>
 		<y>340</y>
 		<label></label>
-		<tokens>0</tokens>
+		<tokens>1</tokens>
 		<static>false</static>
 	</place>
 	<place>
@@ -1260,20 +1273,6 @@
 		<static>false</static>
 	</place>
 	<!-- ARCS -->
-	<arc>
-		<id>8</id>
-		<type>regular</type>
-		<sourceId>1</sourceId>
-		<destinationId>2</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
-	<arc>
-		<id>9</id>
-		<type>regular</type>
-		<sourceId>2</sourceId>
-		<destinationId>3</destinationId>
-		<multiplicity>1</multiplicity>
-	</arc>
 	<arc>
 		<id>10</id>
 		<type>regular</type>
