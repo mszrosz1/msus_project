@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>proces_rezervacie_new</id>
+	<id>proces_rezervacie_testing</id>
 	<initials>NEW</initials>
-	<title>Proces rezervacie</title>
+	<title>Proces rezervacie Testing</title>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
@@ -15,7 +15,7 @@
 	<data type="text">
 		<id>uvodne_info</id>
 		<title>Grand Hotel Mierovo</title>
-		<init>Úvodné informácie o hoteli</init>
+		<init></init>
 	</data>
 	<data type="date">
 		<id>od</id>
@@ -128,7 +128,8 @@
 	<data type="text">
 		<id>tel_cislo</id>
 		<title>Telefónne číslo</title>
-        <valid>regex("^[+]([0-9]+)([ ]?[0-9])+\$")</valid>
+        <placeholder>+421 910123456</placeholder>
+        <valid>regex("^\+[0-9]{3} ?[0-9]{9}$")</valid>
 	</data>
 	<data type="text">
 		<id>mesto</id>
@@ -849,7 +850,7 @@
 					stat : f.stat,
 					info : f.info;
 
-					def sprac_rez = createCase("5f86b220f9ac3b272d6accf5_sprac_rez", "Spracovanie rezervacie")
+					def sprac_rez = createCase("5f86b232f9ac3b272d6b91b9_sprac_rez_testing", "Spracovanie rezervacie")
 
 					sprac_rez.dataSet["ulica"].value = ulica.value;
 					sprac_rez.dataSet["pristelka"].value = pristelka.value;
