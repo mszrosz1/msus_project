@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>reklamacia</id>
+	<id>reklamacia_testing</id>
 	<initials>NEW</initials>
-	<title>Reklamacia</title>
+	<title>Reklamacia Testing</title>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
@@ -49,7 +49,7 @@
 		<title>Stav reklamácie</title>
 		<values>Schválená, vybavená</values>
 		<values>Zamietnutá</values>
-		<init>Stav reklamácie</init>
+        <init>Schválená, vybavená</init>
 	</data>
 	<data type="text">
 		<id>dosledok</id>
@@ -60,7 +60,7 @@
 	<data type="boolean">
 		<id>boolean_0</id>
 		<title>Akceptovať</title>
-		<init>false</init>
+		<init>true</init>
 	</data>
 	<!-- I18NS -->
 	<!-- TRANSITIONS -->
@@ -293,6 +293,21 @@
 					<appearance>outline</appearance>
 				</layout>
 			</dataRef>
+            <dataRef>
+				<id>stav</id>
+				<logic>
+					<behavior>visible</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>2</y>
+					<rows>3</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
 		</dataGroup>
 	</transition>
 	<transition>
@@ -348,6 +363,35 @@
 				<logic>
 					<behavior>visible</behavior>
 					<behavior>editable</behavior>
+                    <action trigger="set">
+                        akceptovat: f.boolean_0,
+                        stanovisko: f.stanovisko,
+                        transition: t.this,
+                        stav: f.stav;
+
+                        if(akceptovat.value){
+                            make stanovisko, hidden on transition when{
+                            return true;
+                            }
+                            
+                            change stav value{
+                                return "Schválená, vybavená";
+                            }
+                        }
+                        else{
+                           make stanovisko, editable on transition when{
+                                return true;
+                            }
+                            
+                            make stanovisko, required on transition when{
+                                return true;
+                            }
+                            
+                           change stav value{
+                                return "Zamietnutá";
+                           }
+                        }
+	                </action>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -358,12 +402,26 @@
 					<template>material</template>
 				</layout>
 			</dataRef>
+            <dataRef>
+				<id>stanovisko</id>
+				<logic>
+					<behavior>hidden</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>3</y>
+					<rows>2</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
+				</layout>
+			</dataRef>
 		</dataGroup>
 		<event type="finish">
 			<id>1</id>
 			<actions phase="post">
 				<action>
-
 					boolean_0 :f.boolean_0;
 
 					if(boolean_0.value){

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>rezervacia</id>
+	<id>rezervacia_testing</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>Rezervacia</title>
+	<title>Rezervacia Testing</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
@@ -406,9 +406,18 @@
 		</dataGroup>
 		<event type="finish">
 			<id>0</id>
+            <actions phase="pre">
+                <action> stav_rezervacie: f.stav_rezervacie;
+                    if (stav_rezervacie.value.equals("Zamietnutá")) {
+                        throw new IllegalArgumentException("Zamietnutá rezervácia nemôže byť zrušená!")
+                    }
+                </action>
+            </actions>
 			<actions phase="post">
-				<action> stav_rezervacie: f.stav_rezervacie; change stav_rezervacie value { return "Zrušená" }</action>
-			</actions>
+				<action>
+                 stav_rezervacie: f.stav_rezervacie;
+                    change stav_rezervacie value { return "Zrušená" }</action>
+			    </actions>
 		</event>
 	</transition>
 	<transition>
@@ -661,7 +670,9 @@
 		<event type="finish">
 			<id>1</id>
 			<actions phase="pre">
-				<action> stav_rezervacie: f.stav_rezervacie; assert stav_rezervacie.equals("Schválená");</action>
+				<action> stav_rezervacie: f.stav_rezervacie; if (!stav_rezervacie.value.equals("Schválená")) {
+                    throw new IllegalArgumentException("Rezervácia musí byť schválená!")
+                    }</action>
 			</actions>
 			<actions phase="post">
 				<action> stav_rezervacie: f.stav_rezervacie; change stav_rezervacie value { return "Zaplatená" }</action>
@@ -688,7 +699,7 @@
 			<id>2</id>
 			<actions phase="pre">
 				<action>
-					def newCase = createCase("5f86b220f9ac3b272d6accf5_reklamacia", "Reklamácia")
+					def newCase = createCase("5f86b232f9ac3b272d6b91b9_reklamacia_testing", "Reklamácia")
 					workflowService.save(newCase)
 				</action>
 			</actions>
@@ -1201,10 +1212,10 @@
 				<action> stav_rezervacie: f.stav_rezervacie,
 					feedback: f.feedback;
 					if (feedback.value) {
-						def newCase = createCase("5f86b220f9ac3b272d6accf5_feedback", "Feedback")
+						def newCase = createCase("5f86b232f9ac3b272d6b91b9_feedback_testing", "Feedback")
 						workflowService.save(newCase)
-						change stav_rezervacie value { return "Odubytovaný" }
 					}
+                    change stav_rezervacie value { return "Odubytovaný" }
 				</action>
 			</actions>
 		</event>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>feedback</id>
+	<id>feedback_testing</id>
 	<initials>NEW</initials>
-	<title>Feedback</title>
+	<title>Feedback Testing</title>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
 	<!-- TRANSACTIONS -->
@@ -50,26 +50,31 @@
 		<id>izba_num</id>
 		<title>Izba</title>
 		<init>1</init>
+        <valid>inrange 1,10</valid>
 	</data>
 	<data type="number">
 		<id>strava_num</id>
 		<title>Strava</title>
 		<init>1</init>
+        <valid>inrange 1,10</valid>
 	</data>
 	<data type="number">
 		<id>wellnes_num</id>
 		<title>Wellnes</title>
 		<init>1</init>
+        <valid>inrange 1,10</valid>
 	</data>
 	<data type="number">
 		<id>fitnes_num</id>
 		<title>Fitnesscentrum</title>
 		<init>1</init>
+        <valid>inrange 1,10</valid>
 	</data>
 	<data type="number">
 		<id>dojem_num</id>
 		<title>Celkový dojem</title>
 		<init>1</init>
+        <valid>inrange 1,10</valid>
 	</data>
 	<!-- I18NS -->
 	<!-- TRANSITIONS -->

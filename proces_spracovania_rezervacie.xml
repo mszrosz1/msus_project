@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-	<id>sprac_rez</id>
+	<id>sprac_rez_testing</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>Spracovanie rezervacie</title>
+	<title>Spracovanie rezervacie Testing</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
@@ -46,22 +46,7 @@
 		<values>Deluxe izba</values>
 		<values>Apartmán</values>
 		<init>Základná izba</init>
-	</data>
-	<data type="multichoice">
-		<id>vybava_izby</id>
-		<title>Výbava izby</title>
-		<placeholder>placeholder</placeholder>
-		<desc>description</desc>
-		<values>Minibar</values>
-		<values>Trezor</values>
-		<values>Sprchovací kút</values>
-		<values>Vaňa</values>
-		<values>Telefón</values>
-		<values>TV</values>
-		<values>Bezplatné wifi</values>
-		<values>Bezplatné parkovisko</values>
-		<values>Vstup do fitnesscentra</values>
-		<action id="1" trigger="set">
+        <action id="1" trigger="set">
 			vyber_izby: f.vyber_izby,
 			vybava_izby: f.vybava_izby,
 			pocet_noci: f.pocet_noci,
@@ -94,6 +79,24 @@
 
 			}
 		</action>
+	</data>
+	<data type="multichoice">
+		<id>vybava_izby</id>
+		<title>Výbava izby</title>
+		<placeholder>placeholder</placeholder>
+		<desc>description</desc>
+		<values>Minibar</values>
+		<values>Trezor</values>
+		<values>Sprchovací kút</values>
+		<values>Vaňa</values>
+		<values>Telefón</values>
+		<values>TV</values>
+		<values>Bezplatné wifi</values>
+		<values>Bezplatné parkovisko</values>
+		<values>Vstup do fitnesscentra</values>
+        <view>
+			<list/>
+		</view>
 	</data>
 	<data type="boolean">
 		<id>domace_zviera</id>
@@ -159,12 +162,14 @@
 		<values>Súhlasím s obchodnými podmienkami</values>
 		<values>Súhlasím so spracovaním osobných údajov</values>
 		<values>Súhlasím so zaväznou platbou</values>
+        <view>
+			<list/>
+		</view>
 	</data>
 	<data type="text">
 		<id>text_0</id>
 		<title>Dôvod zamietnutia</title>
 		<values>area</values>
-		<init>sorry bro</init>
 	</data>
 	<data type="boolean">
 		<id>boolean_0</id>
@@ -520,6 +525,7 @@
 				<id>text_0</id>
 				<logic>
 					<behavior>editable</behavior>
+                    <behavior>required</behavior>
 				</logic>
 				<layout>
 					<x>0</x>
@@ -622,7 +628,7 @@
 					stat : f.stat,
 					info : f.info;
 
-					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+					def rezervacia = createCase("5f86b232f9ac3b272d6b91b9_rezervacia_testing", "Rezervacia")
 
 					rezervacia.dataSet["ulica"].value = ulica.value;
 					rezervacia.dataSet["pristelka"].value = pristelka.value;
@@ -693,7 +699,7 @@
 					stat : f.stat,
 					info : f.info;
 
-					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+					def rezervacia = createCase("5f86b232f9ac3b272d6b91b9_rezervacia_testing", "Rezervacia")
 
 					rezervacia.dataSet["ulica"].value = ulica.value;
 					rezervacia.dataSet["pristelka"].value = pristelka.value;
@@ -764,7 +770,7 @@
 					stat : f.stat,
 					info : f.info;
 
-					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+					def rezervacia = createCase("5f86b232f9ac3b272d6b91b9_rezervacia_testing", "Rezervacia")
 
 					rezervacia.dataSet["ulica"].value = ulica.value;
 					rezervacia.dataSet["pristelka"].value = pristelka.value;
@@ -1160,7 +1166,7 @@
 					stat : f.stat,
 					info : f.info;
 
-					def rezervacia = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+					def rezervacia = createCase("5f86b232f9ac3b272d6b91b9_rezervacia_testing", "Rezervacia")
 
 					rezervacia.dataSet["ulica"].value = ulica.value;
 					rezervacia.dataSet["pristelka"].value = pristelka.value;
