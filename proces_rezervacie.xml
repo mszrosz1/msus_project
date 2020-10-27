@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://modeler.netgrif.com/petriflow_schema.xsd">
-  <id>proces_rezervacie_new</id>
+	<id>proces_rezervacie_new</id>
 	<initials>NEW</initials>
 	<title>Proces rezervacie</title>
 	<defaultRole>true</defaultRole>
@@ -801,14 +801,36 @@
 					<cols>2</cols>
 					<offset>0</offset>
 					<template>material</template>
-					<appearance></appearance>
+				</layout>
+			</dataRef>
+			<dataRef>
+				<id>multichoice_0</id>
+				<logic>
+					<behavior>editable</behavior>
+				</logic>
+				<layout>
+					<x>0</x>
+					<y>14</y>
+					<rows>3</rows>
+					<cols>4</cols>
+					<offset>0</offset>
+					<template>material</template>
+					<appearance>outline</appearance>
 				</layout>
 			</dataRef>
 		</dataGroup>
-        <event type="finish">
-            <id>1</id>
-            <actions phase="post">
-                <action>
+		<event type="finish">
+			<id>1</id>
+			<actions phase="pre">
+			<action id="4">
+				suhlas: f.multichoice_0;
+				if (f.suhlas.value != ["Súhlasím s obchodnými podmienkami","Súhlasím so spracovaním osobných údajov","Súhlasím so zaväznou platbou"] ) {
+					throw new IllegalArgumentException("Musíte poskytnúť všetky súhlasy !")
+				}
+			</action>
+			</actions>
+			<actions phase="post">
+				<action id="3">
 					ulica: f.ulica,
 					pristelka:f.pristelka,
 					email : f.email,
