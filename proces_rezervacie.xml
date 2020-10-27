@@ -57,6 +57,15 @@
         pocet_lozok: f.pocet_lozok,
         cena: f.cena;
 
+        change cena value {
+            def c = 1;
+            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_noci.value * pocet_lozok.value ;}
+            if(vyber_izby.value == "Business izba") {c = 100 * pocet_noci.value * pocet_lozok.value;}
+            if(vyber_izby.value == "Deluxe izba") {c = 125 * pocet_noci.value * pocet_lozok.value;}
+            if(vyber_izby.value == "Apartmán") {c = 160 * pocet_noci.value * pocet_lozok.value;}
+            return 100;
+        }
+
 		if(vyber_izby.value == "Základná izba") {
 			change vybava_izby value {
 				return ["Minibar","Sprchovací kút"];
@@ -285,11 +294,11 @@
 
 		                change cena value {
                             def c = 1;
-                            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_dni.value * pocet_lozok.value ;}
-                            if(vyber_izby.value == "Business izba") {c = 100 * pocet_dni.value * pocet_lozok.value;}
-                            if(vyber_izby.value == "Deluxe izba") {c = 125 * pocet_dni.value * pocet_lozok.value;}
-                            if(vyber_izby.value == "Apartmán") {c = 160 * pocet_dni.value * pocet_lozok.value;}
-                            return c;
+                            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_noci.value * pocet_lozok.value ;}
+                            if(vyber_izby.value == "Business izba") {c = 100 * pocet_noci.value * pocet_lozok.value;}
+                            if(vyber_izby.value == "Deluxe izba") {c = 125 * pocet_noci.value * pocet_lozok.value;}
+                            if(vyber_izby.value == "Apartmán") {c = 160 * pocet_noci.value * pocet_lozok.value;}
+                            return 100;
                         }
 	                </action>
 				</logic>
