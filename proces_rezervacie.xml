@@ -69,13 +69,13 @@
 			}
 
 		}
-		
+
 		if(vyber_izby.value == "Deluxe izba") {
 			change vybava_izby value {
 				return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko"];
 			}
 		}
-		
+
 		if(vyber_izby.value == "Apartmán") {
 			change vybava_izby value {
 				return ["Minibar","Trezor","Vaňa","Telefón","TV","Bezplatné wifi","Bezplatné parkovisko","Vstup do fitnesscentra"];
@@ -807,162 +807,85 @@
 		</dataGroup>
         <event type="finish">
             <id>1</id>
-            <actions phase="pre">
+            <actions phase="post">
                 <action>
-                    def newCase = createCase("5f86b232f9ac3b272d6b91b9_rezervacia", "Rezervácia")
-                    workflowService.save(newCase)
-                </action>
+					ulica: f.ulica,
+					pristelka:f.pristelka,
+					email : f.email,
+					od : f.od,
+					pocet_noci : f.pocet_noci,
+					pocet_lozok : f.pocet_lozok,
+					vyber_izby : f.vyber_izby,
+					vybava_izby : f.vybava_izby,
+					domace_zviera : f.domace_zviera,
+					cena : f.cena,
+					meno : f.meno,
+					priezvisko : f.priezvisko,
+					datum_narodenia : f.datum_narodenia,
+					uvodne_info:f.uvodne_info,
+					tel_cislo : f.tel_cislo,
+					mesto : f.mesto,
+					cislo_domu : f.cislo_domu,
+					stat : f.stat,
+					info : f.info;
+
+					def newCase = createCase("5f86b220f9ac3b272d6accf5_rezervacia", "Rezervacia")
+
+
+					newCase.dataSet["ulica"].value = ulica.value;
+					newCase.dataSet["pristelka"].value = pristelka.value;
+					newCase.dataSet["email"].value = email.value;
+					newCase.dataSet["uvodne_info"].value = uvodne_info.value;
+					newCase.dataSet["od"].value = od.value;
+					newCase.dataSet["pocet_noci"].value = pocet_noci.value;
+					newCase.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					newCase.dataSet["vyber_izby"].value = vyber_izby.value;
+					newCase.dataSet["vybava_izby"].value = vybava_izby.value;
+					newCase.dataSet["domace_zviera"].value = domace_zviera.value;
+					newCase.dataSet["cena"].value = cena.value;
+					newCase.dataSet["meno"].value = meno.value;
+					newCase.dataSet["priezvisko"].value = priezvisko.value;
+					newCase.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					newCase.dataSet["tel_cislo"].value = tel_cislo.value;
+					newCase.dataSet["mesto"].value = mesto.value;
+					newCase.dataSet["cislo_domu"].value = cislo_domu.value;
+					newCase.dataSet["stat"].value = stat.value;
+					newCase.dataSet["info"].value = info.value;
+
+
+
+					def newCase1 = createCase("5f86b220f9ac3b272d6accf5_sprac_rez", "Spracovanie rezervacie")
+
+
+					newCase1.dataSet["ulica"].value = ulica.value;
+					newCase1.dataSet["pristelka"].value = pristelka.value;
+					newCase1.dataSet["email"].value = email.value;
+					newCase1.dataSet["uvodne_info"].value = uvodne_info.value;
+					newCase1.dataSet["od"].value = od.value;
+					newCase1.dataSet["pocet_noci"].value = pocet_noci.value;
+					newCase1.dataSet["pocet_lozok"].value = pocet_lozok.value;
+					newCase1.dataSet["vyber_izby"].value = vyber_izby.value;
+					newCase1.dataSet["vybava_izby"].value = vybava_izby.value;
+					newCase1.dataSet["domace_zviera"].value = domace_zviera.value;
+					newCase1.dataSet["cena"].value = cena.value;
+					newCase1.dataSet["meno"].value = meno.value;
+					newCase1.dataSet["priezvisko"].value = priezvisko.value;
+					newCase1.dataSet["datum_narodenia"].value = datum_narodenia.value;
+					newCase1.dataSet["tel_cislo"].value = tel_cislo.value;
+					newCase1.dataSet["mesto"].value = mesto.value;
+					newCase1.dataSet["cislo_domu"].value = cislo_domu.value;
+					newCase1.dataSet["stat"].value = stat.value;
+					newCase1.dataSet["info"].value = info.value;
+
+
+					workflowService.save(newCase);
+					workflowService.save(newCase1);
+
+
+				</action>
             </actions>
         </event>
 	</transition>
-	<transition>
-		<id>11</id>
-		<x>750</x>
-		<y>747</y>
-		<layout>
-			<offset>0</offset>
-		</layout>
-		<label>Vykonaj platbu</label>
-		<roleRef>
-			<id>zakaznik</id>
-			<logic>
-				<perform>true</perform>
-				<delegate>true</delegate>
-				<view>true</view>
-			</logic>
-		</roleRef>
-		<dataGroup>
-			<id>DataGroup_0</id>
-            <layout>grid</layout>
-			<dataRef>
-				<id>info</id>
-				<logic>
-					<behavior>visible</behavior>
-				</logic>
-				<layout>
-					<x>0</x>
-					<y>0</y>
-					<rows>2</rows>
-					<cols>4</cols>
-					<offset>0</offset>
-					<template>material</template>
-					<appearance>outline</appearance>
-				</layout>
-			</dataRef>
-			<dataRef>
-				<id>multichoice_0</id>
-				<logic>
-					<behavior>editable</behavior>
-				</logic>
-				<layout>
-					<x>0</x>
-					<y>2</y>
-					<rows>2</rows>
-					<cols>4</cols>
-					<offset>0</offset>
-					<template>material</template>
-					<appearance>outline</appearance>
-				</layout>
-			</dataRef>
-			<dataRef>
-				<id>cena</id>
-				<logic>
-					<behavior>visible</behavior>
-				</logic>
-				<layout>
-					<x>0</x>
-					<y>4</y>
-					<rows>1</rows>
-					<cols>4</cols>
-					<offset>0</offset>
-					<template>material</template>
-					<appearance>outline</appearance>
-				</layout>
-			</dataRef>
-		</dataGroup>
-        <event type="finish">
-            <id>1</id>
-            <actions phase="post">
-                <action>
-
-                    ulica: f.ulica,
-                    pristelka:f.pristelka,
-                    email : f.email,
-                    od : f.od,
-                    pocet_noci : f.pocet_noci,
-                    pocet_lozok : f.pocet_lozok,
-                    vyber_izby : f.vyber_izby,
-                    vybava_izby : f.vybava_izby,
-                    domace_zviera : f.domace_zviera,
-                    cena : f.cena,
-                    meno : f.meno,
-                    priezvisko : f.priezvisko,
-                    datum_narodenia : f.datum_narodenia,
-                    uvodne_info:f.uvodne_info,
-                    tel_cislo : f.tel_cislo,
-                    mesto : f.mesto,
-                    cislo_domu : f.cislo_domu,
-                    stat : f.stat,
-                    info : f.info;
-
-                    def newCase = createCase("5f86b233f9ac3b272d6ba3dd_rezervacia", "Rezervacia")
-
-
-                    newCase.dataSet["ulica"].value = ulica.value;
-                    newCase.dataSet["pristelka"].value = pristelka.value;
-                    newCase.dataSet["email"].value = email.value;
-                    newCase.dataSet["uvodne_info"].value = uvodne_info.value;
-                    newCase.dataSet["od"].value = od.value;
-                    newCase.dataSet["pocet_noci"].value = pocet_noci.value;
-                    newCase.dataSet["pocet_lozok"].value = pocet_lozok.value;
-                    newCase.dataSet["vyber_izby"].value = vyber_izby.value;
-                    newCase.dataSet["vybava_izby"].value = vybava_izby.value;
-                    newCase.dataSet["domace_zviera"].value = domace_zviera.value;
-                    newCase.dataSet["cena"].value = cena.value;
-                    newCase.dataSet["meno"].value = meno.value;
-                    newCase.dataSet["priezvisko"].value = priezvisko.value;
-                    newCase.dataSet["datum_narodenia"].value = datum_narodenia.value;
-                    newCase.dataSet["tel_cislo"].value = tel_cislo.value;
-                    newCase.dataSet["mesto"].value = mesto.value;
-                    newCase.dataSet["cislo_domu"].value = cislo_domu.value;
-                    newCase.dataSet["stat"].value = stat.value;
-                    newCase.dataSet["info"].value = info.value;
-
-
-
-                    def newCase1 = createCase("5f86b233f9ac3b272d6ba3dd_new_model", "New Model")
-
-
-                    newCase1.dataSet["ulica"].value = ulica.value;
-                    newCase1.dataSet["pristelka"].value = pristelka.value;
-                    newCase1.dataSet["email"].value = email.value;
-                    newCase1.dataSet["uvodne_info"].value = uvodne_info.value;
-                    newCase1.dataSet["od"].value = od.value;
-                    newCase1.dataSet["pocet_noci"].value = pocet_noci.value;
-                    newCase1.dataSet["pocet_lozok"].value = pocet_lozok.value;
-                    newCase1.dataSet["vyber_izby"].value = vyber_izby.value;
-                    newCase1.dataSet["vybava_izby"].value = vybava_izby.value;
-                    newCase1.dataSet["domace_zviera"].value = domace_zviera.value;
-                    newCase1.dataSet["cena"].value = cena.value;
-                    newCase1.dataSet["meno"].value = meno.value;
-                    newCase1.dataSet["priezvisko"].value = priezvisko.value;
-                    newCase1.dataSet["datum_narodenia"].value = datum_narodenia.value;
-                    newCase1.dataSet["tel_cislo"].value = tel_cislo.value;
-                    newCase1.dataSet["mesto"].value = mesto.value;
-                    newCase1.dataSet["cislo_domu"].value = cislo_domu.value;
-                    newCase1.dataSet["stat"].value = stat.value;
-                    newCase1.dataSet["info"].value = info.value;
-
-
-                    workflowService.save(newCase);
-                    workflowService.save(newCase1);
-
-
-
-                </action>
-            </actions>
-        </event>
-    </transition>
     <transition>
         <id>22</id>
         <x>579</x>

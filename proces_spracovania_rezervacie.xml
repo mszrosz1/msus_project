@@ -3,7 +3,7 @@
 	<id>sprac_rez</id>
 	<version>1.0.0</version>
 	<initials>NEW</initials>
-	<title>New Model</title>
+	<title>Spracovanie rezervacie</title>
 	<icon>home</icon>
 	<defaultRole>true</defaultRole>
 	<transitionRole>false</transitionRole>
