@@ -28,14 +28,11 @@
 		<init>1</init>
 		<valid>inrange 1,inf</valid>
 	</data>
-	<data type="enumeration">
+	<data type="number">
 		<id>pocet_lozok</id>
 		<title>Počet lôžok</title>
-        <values>1</values>
-		<values>2</values>
-		<values>3</values>
-		<values>4</values>
 		<init>1</init>
+        <valid>inrange 1,4</valid>
 	</data>
     <data type="number">
 		<id>cena</id>
@@ -54,17 +51,7 @@
         vyber_izby: f.vyber_izby,
 		vybava_izby: f.vybava_izby,
         pocet_noci: f.pocet_noci,
-        pocet_lozok: f.pocet_lozok,
-        cena: f.cena;
-
-        change cena value {
-            def c = 1;
-            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_noci.value * pocet_lozok.value ;}
-            if(vyber_izby.value == "Business izba") {c = 100 * pocet_noci.value * pocet_lozok.value;}
-            if(vyber_izby.value == "Deluxe izba") {c = 125 * pocet_noci.value * pocet_lozok.value;}
-            if(vyber_izby.value == "Apartmán") {c = 160 * pocet_noci.value * pocet_lozok.value;}
-            return 100;
-        }
+        pocet_lozok: f.pocet_lozok;
 
 		if(vyber_izby.value == "Základná izba") {
 			change vybava_izby value {
@@ -288,19 +275,19 @@
 				<logic>
 					<behavior>editable</behavior>
                     <behavior>required</behavior>
-                    <action id="10" trigger="set">
+                    <action trigger="set">
                         vyber_izby: f.vyber_izby,
-                        pocet_lozok: f.pocet_lozok,
                         pocet_noci: f.pocet_noci,
+                        pocet_lozok: f.pocet_lozok,
                         cena: f.cena;
 
 		                change cena value {
                             def c = 1;
-                            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_noci.value * pocet_lozok.value ;}
+                            if(vyber_izby.value == "Základná izba") {c = 75 * pocet_noci.value * pocet_lozok.value;}
                             if(vyber_izby.value == "Business izba") {c = 100 * pocet_noci.value * pocet_lozok.value;}
                             if(vyber_izby.value == "Deluxe izba") {c = 125 * pocet_noci.value * pocet_lozok.value;}
                             if(vyber_izby.value == "Apartmán") {c = 160 * pocet_noci.value * pocet_lozok.value;}
-                            return 100;
+                            return c;
                         }
 	                </action>
 				</logic>
